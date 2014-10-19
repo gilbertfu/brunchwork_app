@@ -9,7 +9,8 @@ describe "StaticPages" do
     
     it "should have title 'Home'" do
       visit root_path
-      expect(page).to have_title('BrunchWork | Home')
+      expect(page).to have_title('BrunchWork')
+      expect(page).not_to have_title('| Home')
     end
     
   end
