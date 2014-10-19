@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-BrunchworkApp::Application.config.secret_key_base = '22472d7389ff80d2e5064bf98e7a3ae04ee0b3f4110c682adb118e423ef18b50e76f371f8cc0d9b8bc2f14f59474c9d696e3697b01d4d6e625c1438d7e0c7c7f'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+BrunchworkApp::Application.config.secret_key_base = secure_token
