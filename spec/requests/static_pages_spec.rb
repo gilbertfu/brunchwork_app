@@ -13,6 +13,28 @@ describe "StaticPages" do
       expect(page).not_to have_title('| Home')
     end
     
+    describe "signup" do
+
+      before { visit root_path }
+  
+      let(:submit) { "Subscribe" }
+  
+      describe "with invalid information" do
+        it "should not create an email" do
+          expect { click_button submit }.not_to change(Email, :count)
+        end
+      end
+  
+      describe "with valid information" do
+        before do
+          fill_in "Email",        with: "user@example.com"
+        end
+  
+        it "should create an email" do
+          expect { click_button submit }.to change(Email, :count).by(1)
+        end
+      end
+    end
   end
   
   describe "Help page" do

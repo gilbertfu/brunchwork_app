@@ -1,2 +1,13 @@
 <h1>BrunchWork</h1>
-<p> <center>Coming Soon in 2015</center></p>
+    <h2> 
+       Introducing the power brunch, a place to build your network and move your career forward over a fun meal 
+      </h2> 
+  <div class="row center">
+    <div class="span6 offset3">
+      <%= form_for(@email) do |f| %>
+       <%= render 'shared/error_messages' %>
+       <%= f.text_field :email, :placeholder => "Email" %>
+       <%= f.submit "Subscribe", class: "btn btn-large btn-primary" %>
+      <% end %>
+    </div>
+  </div>
