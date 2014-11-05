@@ -7,6 +7,7 @@ describe Email do
   subject { @email }
 
   it { should respond_to(:email) }
+  it { should respond_to(:unsubscribe_hash) }
   
   it { should be_valid }
 
@@ -43,6 +44,11 @@ describe Email do
     end
 
     it { should_not be_valid }
+  end
+  
+  describe "unsubscribe hash" do
+    before { @email.save }
+    its(:unsubscribe_hash) { should_not be_blank }
   end
   
 end

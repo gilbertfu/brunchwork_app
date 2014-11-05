@@ -1,6 +1,15 @@
 <% provide(:title, 'All emails') %>
 <h1>All emails</h1>
-
+<%= form_tag do %>
+  Compose Emails
+  <% end %>
 <ul class="emails">
 	<%= render @emails %>
 </ul>
+
+
+<%#= form_tag("/search", method: "get") do %>
+  <%#= label_tag(:q, "Search for:") %>
+  <%#= text_field_tag(:q) %>
+  <%#= submit_tag("Search") %>
+<%# end %>

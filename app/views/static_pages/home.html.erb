@@ -1,13 +1,42 @@
-<h1>BrunchWork</h1>
-    <h2> 
-       Introducing the power brunch, a place to build your network and move your career forward over a fun meal 
-      </h2> 
-  <div class="row center">
-    <div class="span6 offset3">
+<div class="container">
+<div class="transparency">
+<%= image_tag("raspberry.jpg", :id => "background") %>
+<!--<h1>BrunchWork</h1>-->
+
+  <h2> 
+     Introducing the power brunch, a place to build your network and move your career forward over a fun meal 
+  </h2> 
+  <!--<div class="row center">
+    <div class="span6 offset3"> -->
       <%= form_for(@email) do |f| %>
-       <%= render 'shared/error_messages' %>
-       <%= f.text_field :email, :placeholder => "Email" %>
-       <%= f.submit "Subscribe", class: "btn btn-large btn-primary" %>
+      <%= render 'shared/error_messages' %>
+      <%= f.text_field :email, :placeholder => "Email" %> <div class="center"><%= f.submit "Subscribe", class: "btn btn-large btn-primary " %> </div>
       <% end %>
-    </div>
-  </div>
+   <!-- </div>
+  </div> -->
+</div>
+</div>
+<h1>How It Works</h1>
+<div id="how-it-works">
+      <div class="circle " >Join our community</div>
+      <div class="circle " >Receive weekly brunch invites</div>
+      <div class="circle " >Attend as many events as you like </div>
+      <div class="circle " >Catch-up on presentations you missed</div>
+      <div class="circle " >Browse member profiles and reach out</div>
+      <span class="stretch"></span>
+      </div>
+<!--
+			<p>We became friends in college and moved to NYC after graduation, 
+      navigating high-power finance jobs and catching up over weekend brunch.
+      </p>
+      <p>We struggled to find a place that brings together a community of driven
+      , young people to inspire and learn from each other. As we continue to 
+      explore our career options, we are working to build a community of like-
+      minded people to share a dialogue that shapes our paths. 
+      </p>
+      <p>We believe that networking and building our professional and personal
+      skills should be as easy as going to brunch with your friends. We imagine
+      a more personal and enjoyable way for 20-somethings to network and get
+      their career questions answered.</p>
+      <p>Thank you for enjoying brunch with us.</p>
+-->

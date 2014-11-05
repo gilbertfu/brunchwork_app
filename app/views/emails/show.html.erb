@@ -1,0 +1,11 @@
+<% provide(:title, "Email") %>
+<div class="row" align="center">
+	<aside class="span4">
+		<section>
+			<h1>
+				<%= @email.email %>
+			</h1>
+			<p><%= link_to 'delete', unsubscribe_path(@email.unsubscribe_hash), method: :delete %></p>
+		</section>
+	</aside>
+</div>

@@ -1,0 +1,2 @@
+<!--<%= link_to 'Unsubscribe Me!', url_for(unsubscribe_path(@email.unsubscribe_hash)), method: :delete%> -->
+<%= link_to 'Unsubscribe Me!', unsubscribe_url(@email.unsubscribe_hash), method: :delete %>

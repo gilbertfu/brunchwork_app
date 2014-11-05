@@ -1,9 +1,11 @@
 BrunchworkApp::Application.routes.draw do
-  resources :emails, only: [:create, :destroy, :index]
+  resources :emails, only: [:create, :destroy, :show, :index]
   root "static_pages#home"
   match 'help', to: "static_pages#help", via: 'get'
   match 'about', to: "static_pages#about", via: 'get'
   match 'contact', to: "static_pages#contact", via: 'get'
+  match 'emails/unsubscribe/:unsubscribe_hash' => 'emails#show', via: 'get'
+  match 'emails/unsubscribe/:unsubscribe_hash' => 'emails#destroy', via: 'delete', :as => 'unsubscribe'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
