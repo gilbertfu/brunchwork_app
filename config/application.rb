@@ -31,5 +31,6 @@ module BrunchworkApp
       authentication:       'plain',
       enable_starttls_auto: true  }
     config.action_mailer.default_url_options = { host: 'https://rails-tutorial-c9-gilbertfu.c9.io' }
+    config.action_mailer.default :charset => "utf-8"
   end
 end
