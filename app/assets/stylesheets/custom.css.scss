@@ -28,12 +28,12 @@ html {
 }
 
 .transparency  {  
-     background-color:rgba(255,255,255,0.7);
-     h1, h2 {
-       color: black;
-     }
-     width: 400px;
-     margin: auto;
+    background-color:rgba(255,255,255,0.7);
+    h1, h2 {
+      color: black;
+    }
+    width: 400px;
+    margin: auto;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 50px;
@@ -42,17 +42,34 @@ html {
     margin-bottom: 100px;
 }  
 
-#background {
+.transparency_slide3  {  
+    background-color:rgba(255,255,255,0.4);
+    h1, h2 {
+      color: black;
+    }
+    width: 700px;
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    h3{
+      line-height: 100%;
+    } 
+}
+/*#background {
     width: 100%;
     min-width: 1200px;
     position: fixed;
     top: 0;
     left: 0;
     z-index: -9999;
-}
+}*/
 
 body {
-  padding-top: 60px;
+  //padding-top: 60px;
 }
 
 section {
@@ -85,8 +102,17 @@ h1 {
 
 h2 {
   font-size: 2em;
-  margin-bottom: 30px;
+  font-family: "Apercu";
+  margin-bottom: 5px;
   letter-spacing: -2px;
+  text-align: center;
+}
+
+h3{
+  font-size: 1.4em;
+  font-family: "Apercu";
+  margin-bottom: 30px;
+  //letter-spacing: -2px;
   text-align: center;
 }
 
@@ -100,10 +126,10 @@ p {
 
 #logo {
   float: left;
-  font: Gulim;
-  margin-right: 10px;
+  font-family: 'Gulim';
+  //margin-right: 10px;
   font-size: 1.7em;
-  text-transform: lowercase;
+  text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   line-height: 1;
@@ -140,43 +166,13 @@ footer {
 
 /* miscellaneous */
 
-.debug_dump {
+/*.debug_dump {
   clear: both;
   float: left;
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
-}
-
-/* sidebar */
-
-aside {
-  section {
-    padding: 10px 0;
-    border-top: 1px solid $grayLighter;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-    }
-  }
-}
-
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
+}*/
 
 /* forms */
 
@@ -222,39 +218,66 @@ input {
 }
 
 
-.circle{
-  width:250px;
-  height:250px;
-  border-radius:125px;
+.circle_left{
+  width:180px;
+  height:180px;
+  border-radius:90px;
   font-size:13px;
   color:#fff;
   line-height:250px;
   text-align:center;
-  background-color:rgba(255,165,0,0.4);
+  background-color:rgba(255,165,0,0.7);
   display: inline-block;
-  //display: table;
+  display: table;
   //box-sizing: border-box;
-  //margin: 0 auto;
-  //float: left;
+  margin: 50px;
+  margin-left: 100px;
+  float: middle;
     *display: inline;
 }
 
-/*.circle>div {
-    display: table-row;
+.circle_left p {
+    display: table-cell;
     //line-height: 250px;
-    //vertical-align: middle;
+    vertical-align: middle;
+    font-family: 'Open Sans';
 }
-.circle>div>div {
+.circle2{
+  width:180px;
+  height:180px;
+  border-radius:90px;
+  font-size:13px;
+  color:#fff;
+  line-height:250px;
+  text-align:center;
+  background-color:rgba(255,165,0,0.7);
+  display: inline-block;
+  display: table;
+  //box-sizing: border-box;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-left: 50px;
+  float: middle;
+    *display: inline;
+}
+
+.circle2 p {
+    display: table-cell;
+    //line-height: 250px;
+    vertical-align: middle;
+    font: Open Sans;
+}
+/*.circle>div>div {
     display: table-cell;
     //line-height: 250px;
     vertical-align: middle;
 }*/
 
 #how-it-works{
-  margin-top: 50px;
-  margin-bottom: 50px;
-  margin-left: 25px;
-  margin-right: 25px;
+  /*padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 25px;
+  padding-right: 25px;*/
   min-width: 1400px;
   text-align: justify;
   -ms-text-justify: distribute-all-lines;
@@ -271,4 +294,48 @@ input {
 .compose_email_field{
   width: 500px;
   height: 500px;
+}
+
+.slide{
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  //padding: 1px;
+  background-repeat: no-repeat;
+}
+
+#slide1{
+  background-image: url(slide1/raspberry.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: 9;
+  padding-bottom: 150px;
+}
+
+#slide2{
+  background-image: url(slide2/white_bg.png);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: -999;
+}
+
+#slide3{
+  background-image: url(slide3/unsplash-bonus-crop.png);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: 9;
+}
+
+#mimosa{
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  margin-top: 200px;
 }

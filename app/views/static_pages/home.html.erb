@@ -1,21 +1,68 @@
-<div class="container">
-<div class="transparency">
-<%= image_tag("raspberry.jpg", :id => "background") %>
-<!--<h1>BrunchWork</h1>-->
+    <!--<%= image_tag("raspberry.jpg", :id => "background") %>-->
+<div class='slide' id='slide1' data-slide='1' data-stellar-background-ratio='0.5'>
+  <div class="container">
+    <div class="transparency">
 
-  <h2> 
-     Introducing the power brunch, a place to build your network and move your career forward over a fun meal 
-  </h2> 
-  <!--<div class="row center">
-    <div class="span6 offset3"> -->
-      <%= form_for(@email) do |f| %>
-      <%= render 'shared/error_messages' %>
-      <%= f.text_field :email, :placeholder => "Email" %> <div class="center"><%= f.submit "Subscribe", class: "btn btn-large btn-primary " %> </div>
-      <% end %>
-   <!-- </div>
-  </div> -->
+      <h2> 
+         Introducing the power brunch</h2>
+         <h3>
+         A place to build your network and move your career forward over a fun meal 
+      </h3> 
+          <%= form_for(@email) do |f| %>
+          <%= render 'shared/error_messages' %>
+          <%= f.text_field :email, :placeholder => "Email" %> <div class="center"><%= f.submit "Subscribe", class: "btn btn-large btn-primary "%> </div>
+          <% end %>
+    </div>
+  </div>
 </div>
+<div class='slide' id='slide2' data-slide='2' data-stellar-background-ratio='0.5'>
+<div class="container">
+    <div class="row">
+    <div class="span4"> 
+      <div id="how-it-works">
+        <div class="circle_left" > <p>Join our community</p></div>
+        <div class="circle_left" ><p>Receive weekly brunch invites for Saturdays at 11 am</p></div>
+        <div class="circle_left" ><p>Attend as many events as you like</p></div>
+      </div>
+    </div>
+    <div class="span4"> 
+      <div id="how-it-works">
+        <div class="circle2 " ><p>Catch-up on presentations you missed online</p></div>
+        <div class="circle2 " ><p>Browse member profiles and reach out</p></div>
+        <!--<span class="stretch"></span>-->
+      </div>
+    </div>   
+    <div class="span4"> <!--<img src="/assets/images/traditional-mimosa.jpg" id="mimosa" />-->
+    
+    <%= image_tag("traditional-mimosa.jpg", :id => "mimosa") %>
+      
+    </div> 
+    </div>
 </div>
+<div class='slide' id='slide3' data-slide='3' data-stellar-background-ratio='0.5'>
+<div class="container">
+    <div class="transparency_slide3">
+
+      <h1> About Us</h1>
+         <h3>
+        <p>We became friends in college and moved to NYC after graduation, navigating high-power finance jobs and catching up over weekend brunch.
+<br>
+<br>We struggled to find a place that brings together a community of driven, young people to inspire and learn from each other. As we continue to explore our career options, we are working to build a community of like-minded people to share a dialogue that shapes our paths. 
+<br>
+<br>We believe that networking and building our professional and personal skills should be as easy as going to brunch with your friends. We imagine a more personal and enjoyable way for 20-somethings to network and get their career questions answered.
+<br>
+<br>Thank you for enjoying brunch with us. </p>
+      </h3> 
+
+    </div>
+  </div>
+</div>
+<div class='slide' id='slide3' data-slide='4' data-stellar-background-ratio='0.5'>
+
+</div>
+
+
+<!--
 <h1>How It Works</h1>
 <div id="how-it-works">
       <div class="circle " >Join our community</div>
@@ -25,6 +72,7 @@
       <div class="circle " >Browse member profiles and reach out</div>
       <span class="stretch"></span>
       </div>
+      -->
 <!--
 			<p>We became friends in college and moved to NYC after graduation, 
       navigating high-power finance jobs and catching up over weekend brunch.
