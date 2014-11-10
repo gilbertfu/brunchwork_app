@@ -79,7 +79,4 @@ BrunchworkApp::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
   config.action_mailer.default_url_options = { host: 'https://rails-tutorial-c9-gilbertfu.c9.io' }
   
-  # Force all access to the app over SSL, use Strict-Transport-Security,
-  # and use secure cookies.
-  config.force_ssl = true
 end
