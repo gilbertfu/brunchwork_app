@@ -1,7 +1,7 @@
 class EmailsController < ApplicationController
   #need to figure out how to unsubscribe easily for admins and for users
   #before_action :admin_index_page, only: :destroy
-  http_basic_authenticate_with :name => "admin", :password => "evanandgilbert", only: [:index, :send_email]
+  http_basic_authenticate_with :name => "admin", :password => "ENV['ADMIN_PASSWORD']", only: [:index, :send_email]
   
   
   def create

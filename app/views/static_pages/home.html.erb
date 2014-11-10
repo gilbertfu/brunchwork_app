@@ -1,4 +1,4 @@
-    <!--<%= image_tag("raspberry.jpg", :id => "background") %>-->
+
 <div class='slide' id='slide1' data-slide='1' data-stellar-background-ratio='0.5'>
   <div class="container">
     <div class="transparency">
@@ -6,85 +6,83 @@
       <h2> 
          Introducing the power brunch</h2>
          <h3>
-         A place to build your network and move your career forward over a fun meal 
+         Build your network and move your career forward over a fun meal 
       </h3> 
           <%= form_for(@email) do |f| %>
           <%= render 'shared/error_messages' %>
-          <%= f.text_field :email, :placeholder => "Email" %> <div class="center"><%= f.submit "Subscribe", class: "btn btn-large btn-primary "%> </div>
+          <%= f.text_field :email, :placeholder => "Enter your email to join!" %> <div class="center"><%= f.submit "Join", class: "btn btn-large btn-warning "%> </div>
           <% end %>
     </div>
   </div>
 </div>
-<div class='slide' id='slide2' data-slide='2' data-stellar-background-ratio='0.5'>
-<div class="container">
+<div class="slide" id="slide2" data-slide='2' data-stellar-background-ratio='0.5'>
+<h1>How It Works</h1>
+<%= image_tag("first_white_bg_with_text_3.png") %>
+<!-- <div class="container-fluid">
     <div class="row">
+      <div class="span4 offset1"> 
+        <div id="how-it-works">
+          <div class="circle_left" > <p>(1) <br>Join our community <br> </p></div>
+        </div>
+      </div>
+      <div class="span4"> 
+        <div id="how-it-works">
+        <div class="circle_left " ><p>(2) <br>Receive weekly brunch invites</p></div>
+      </div>
+      </div> 
+
     <div class="span4"> 
       <div id="how-it-works">
-        <div class="circle_left" > <p>Join our community</p></div>
-        <div class="circle_left" ><p>Receive weekly brunch invites for Saturdays at 11 am</p></div>
-        <div class="circle_left" ><p>Attend as many events as you like</p></div>
+        <div class="circle_left " ><p>(3) <br>Catch-up on presentations you missed online</p></div>
       </div>
     </div>
     <div class="span4"> 
-      <div id="how-it-works">
-        <div class="circle2 " ><p>Catch-up on presentations you missed online</p></div>
-        <div class="circle2 " ><p>Browse member profiles and reach out</p></div>
-        <!--<span class="stretch"></span>-->
-      </div>
-    </div>   
-    <div class="span4"> <!--<img src="/assets/images/traditional-mimosa.jpg" id="mimosa" />-->
-    
-    <%= image_tag("traditional-mimosa.jpg", :id => "mimosa") %>
-      
-    </div> 
+        <div class="circle_left " ><p>(4) <br>Browse member profiles and reach out</p></div>
+    </div>
+    <div class="span4"> 
+        <div class="circle_left " ><p>(4) <br>Browse member profiles and reach out</p></div>
+    </div>
+
+  </div>
+</div> -->
+
+    <div class="container">
+      <div class="transparency_events">
+          <h2> Upcoming Events</h2>
+             <h3>
+               <ul>
+                 <li>brunch<font color='#808080'><italic>story</italic></font>: listen or join panels profiling careers: conventional and off the beaten path</li>
+                 <br>
+                 <li>brunch<font color='#808080'><italic>start</italic></font>: hear from successful entrepreneurs on how they got their businesses off the ground</li>
+                 <br>
+                 <li>brunch<font color='#808080'><italic>skill</italic></font>: work on your professional skills with the pros</li>
+                 <br>
+                 <li>brunch<font color='#808080'><italic>vest</italic></font>: where should you be investing? get expert advice</li>
+                 <br>
+                 <li>brunch<font color='#808080'><italic>life</italic></font>: tips & tricks that run the gamut: personal finance, art & wine, Hamptons summer rentals</li>
+               </ul>
+             </h3>
+          </div>
     </div>
 </div>
 <div class='slide' id='slide3' data-slide='3' data-stellar-background-ratio='0.5'>
-<div class="container">
+  <div class="container">
     <div class="transparency_slide3">
 
       <h1> About Us</h1>
          <h3>
         <p>We became friends in college and moved to NYC after graduation, navigating high-power finance jobs and catching up over weekend brunch.
-<br>
-<br>We struggled to find a place that brings together a community of driven, young people to inspire and learn from each other. As we continue to explore our career options, we are working to build a community of like-minded people to share a dialogue that shapes our paths. 
-<br>
-<br>We believe that networking and building our professional and personal skills should be as easy as going to brunch with your friends. We imagine a more personal and enjoyable way for 20-somethings to network and get their career questions answered.
-<br>
-<br>Thank you for enjoying brunch with us. </p>
+        <br>
+        <br>We struggled to find a place that brings together a community of driven, young people to inspire and learn from each other. As we continue 
+            to explore our career options, we are working to build a community of like-minded people to share a dialogue that shapes our paths. 
+        <br>
+        <br>We believe that networking and building our professional and personal skills should be as easy as going to brunch with your friends.
+            We imagine a more personal and enjoyable way for 20-somethings to network and get their career questions answered.
+        <br>
+        <br>So, are you ready for brunch?</p>
       </h3> 
 
     </div>
   </div>
 </div>
-<div class='slide' id='slide3' data-slide='4' data-stellar-background-ratio='0.5'>
 
-</div>
-
-
-<!--
-<h1>How It Works</h1>
-<div id="how-it-works">
-      <div class="circle " >Join our community</div>
-      <div class="circle " >Receive weekly brunch invites</div>
-      <div class="circle " >Attend as many events as you like</div>
-      <div class="circle " >Catch-up on presentations you missed</div>
-      <div class="circle " >Browse member profiles and reach out</div>
-      <span class="stretch"></span>
-      </div>
-      -->
-<!--
-			<p>We became friends in college and moved to NYC after graduation, 
-      navigating high-power finance jobs and catching up over weekend brunch.
-      </p>
-      <p>We struggled to find a place that brings together a community of driven
-      , young people to inspire and learn from each other. As we continue to 
-      explore our career options, we are working to build a community of like-
-      minded people to share a dialogue that shapes our paths. 
-      </p>
-      <p>We believe that networking and building our professional and personal
-      skills should be as easy as going to brunch with your friends. We imagine
-      a more personal and enjoyable way for 20-somethings to network and get
-      their career questions answered.</p>
-      <p>Thank you for enjoying brunch with us.</p>
--->

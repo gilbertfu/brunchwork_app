@@ -25,9 +25,8 @@ module BrunchworkApp
       address:              'smtp.gmail.com',
       port:                 587,
       #domain:               'example.com',
-      user_name:            'brunchwork.test@gmail.com',
-      #password:             ENV['GMAIL_PASSWORD'],
-      password:             'rubyonrails',
+      user_name:            'brunchworkfounders@gmail.com',
+      password:             ENV['GMAIL_PASSWORD'],
       authentication:       'plain',
       enable_starttls_auto: true  }
     config.action_mailer.default_url_options = { host: 'https://rails-tutorial-c9-gilbertfu.c9.io' }

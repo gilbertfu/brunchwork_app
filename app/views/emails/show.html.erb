@@ -1,11 +1,15 @@
 <% provide(:title, "Email") %>
-<div class="row" align="center">
-	<aside class="span4">
-		<section>
-			<h1>
+<div class='slide' id='slide1' data-slide='1' data-stellar-background-ratio='0.5'>
+  <div class="container">
+    <div class="transparency">
+			<h2>
 				<%= @email.email %>
-			</h1>
-			<p><%= link_to 'delete', unsubscribe_path(@email.unsubscribe_hash), method: :delete %></p>
-		</section>
-	</aside>
+			</h2>
+			<div class="center">
+				<p>
+					<%= link_to 'Unsubscribe' , unsubscribe_path(@email.unsubscribe_hash), method: :delete %>
+				</p>
+		</div>
+    </div>
+  </div>
 </div>

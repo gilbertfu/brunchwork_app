@@ -13,7 +13,8 @@ $grayMediumLight: #eaeaea;
 /* universal */
 
 html {
-  overflow-y: scroll;
+ // overflow-y: scroll;
+  height: 100%;
 }
 
 .full_width{
@@ -51,29 +52,54 @@ html {
     margin: auto;
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 60px;
+    //z-index: -900;
+    margin-bottom: 60px;
     h3{
-      line-height: 100%;
+      line-height: 50%;
+      font-size: 1em;
     } 
 }
-/*#background {
-    width: 100%;
-    min-width: 1200px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -9999;
-}*/
+
+.transparency_events  {  
+    background-color:rgba(255,255, 255,0.0);
+    h1, h2 {
+      color: #808080;
+    }
+    width: 500px;
+    //margin: auto;
+    top: 50%;
+    padding-left: 0px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: auto;
+    z-index: 10;
+    margin-top: 40px;
+    margin-bottom: 70px;
+    h3{
+      line-height: 50%;
+      font-size: 1.5em;
+      color: #FFA500;
+      text-align: left;
+    } 
+    ul{
+      list-style-type: none;
+    }
+    italic{
+      font-style: italic;
+    }
+}
 
 body {
   //padding-top: 60px;
+  height: 100%;
 }
 
 section {
-  overflow: auto;
+  //overflow: auto;
 }
 
 textarea {
@@ -96,13 +122,13 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   text-align: center;
 }
 
 h2 {
   font-size: 2em;
-  font-family: "Apercu";
+  font-family: "Gulim";
   margin-bottom: 5px;
   letter-spacing: -2px;
   text-align: center;
@@ -110,7 +136,7 @@ h2 {
 
 h3{
   font-size: 1.4em;
-  font-family: "Apercu";
+  font-family: "Gulim";
   margin-bottom: 30px;
   //letter-spacing: -2px;
   text-align: center;
@@ -128,8 +154,9 @@ p {
   float: left;
   font-family: 'Gulim';
   //margin-right: 10px;
-  font-size: 1.7em;
-  text-transform: uppercase;
+  font-size: 2em;
+  //font-style: bold;
+  text-transform: lowercase;
   letter-spacing: -1px;
   padding-top: 9px;
   line-height: 1;
@@ -141,10 +168,11 @@ p {
 /* footer */
 
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $grayMediumLight;
-  color: $grayLight;
+ // margin-top: 45px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  //border-top: 1px solid $grayMediumLight;
+  background-color: #FFA500;
   a {
     color: $gray;
     &:hover {
@@ -219,19 +247,26 @@ input {
 
 
 .circle_left{
-  width:180px;
+  /*width:180px;
   height:180px;
-  border-radius:90px;
+  border-radius:90px;*/
+  width:375px;
+  background-image: url(real_br_egg.jpg);
+  height:245px;
+  color:#fff;
+  background-size: contain;
+  background-repeat: no-repeat;
   font-size:13px;
   color:#fff;
   line-height:250px;
   text-align:center;
-  background-color:rgba(255,165,0,0.7);
+  //background-color:rgba(255,165,0,1);
   display: inline-block;
   display: table;
   //box-sizing: border-box;
-  margin: 50px;
-  margin-left: 100px;
+  //margin: 40px;
+  //margin-left: 100px;
+  //margin-right: 100px;
   float: middle;
     *display: inline;
 }
@@ -240,23 +275,31 @@ input {
     display: table-cell;
     //line-height: 250px;
     vertical-align: middle;
-    font-family: 'Open Sans';
+    font-family: 'Gulim';
+     padding:100px;
+    padding-right:125px;
 }
 .circle2{
-  width:180px;
+  /*width:180px;
   height:180px;
-  border-radius:90px;
+  border-radius:90px;*/
+  width:375px;
+  background-image: url(real_br_egg.jpg);
+  height:245px;
+  color:#fff;
+  background-size: contain;
+  background-repeat: no-repeat;
   font-size:13px;
   color:#fff;
   line-height:250px;
   text-align:center;
-  background-color:rgba(255,165,0,0.7);
+  //background-color:rgba(255,165,0,1);
   display: inline-block;
   display: table;
   //box-sizing: border-box;
-  margin-top: 100px;
-  margin-bottom: 100px;
-  margin-left: 50px;
+  margin-top: 75px;
+  //margin-bottom: 30px;
+  margin-left: 60px;
   float: middle;
     *display: inline;
 }
@@ -265,20 +308,87 @@ input {
     display: table-cell;
     //line-height: 250px;
     vertical-align: middle;
-    font: Open Sans;
+    font-family: 'Gulim';
+     padding:100px;
+    padding-right:110px;
+    font-style: 'bold';
 }
-/*.circle>div>div {
+
+.circle4{
+  /*width:180px;
+  height:180px;
+  border-radius:90px;*/
+  width:375px;
+  background-image: url(real_br_egg.jpg);
+  height:245px;
+  color:#fff;
+  background-size: contain;
+  background-repeat: no-repeat;
+  font-size:13px;
+  color:#fff;
+  line-height:250px;
+  text-align:center;
+  //background-color:rgba(255,165,0,1);
+  display: inline-block;
+  display: table;
+  //box-sizing: border-box;
+  margin-top: 300px;
+  //margin-bottom: 30px;
+  margin-left: 60px;
+  z-index: -999;
+  float: middle;
+    *display: inline;
+}
+
+.circle4 p {
     display: table-cell;
     //line-height: 250px;
     vertical-align: middle;
-}*/
+    font-family: 'Gulim';
+     padding:100px;
+    padding-right:110px;
+    font-style: 'bold';
+    z-index: -999;
+}
+
+.circle_egg{
+  width:375px;
+  background-image: url(real_br_egg.jpg);
+  height:245px;
+  color:#fff;
+  background-size: contain;
+  background-repeat: no-repeat;
+  //border-radius:90px;
+  font-size:13px;
+  //color:#fff;
+  line-height:250px;
+  text-align:center;
+ // background-color:rgba(255,165,0,1);
+  display: inline-block;
+  display: table;
+  //box-sizing: border-box;
+  margin: 40px;
+  margin-left: 0px;
+  float: middle;
+    *display: inline;
+}
+
+.circle_egg p {
+    display: table-cell;
+    padding:100px;
+    padding-right:105px;
+    //line-height: 250px;
+    vertical-align: middle;
+    font-family: 'Gulim';
+}
+
 
 #how-it-works{
   /*padding-top: 50px;
   padding-bottom: 50px;
   padding-left: 25px;
   padding-right: 25px;*/
-  min-width: 1400px;
+  //min-width: 1400px;
   text-align: justify;
   -ms-text-justify: distribute-all-lines;
   text-justify: distribute-all-lines;
@@ -299,6 +409,7 @@ input {
 .slide{
   background-attachment: fixed;
   width: 100%;
+  //min-width: 1700px;
   height: 100%;
   position: relative;
   //padding: 1px;
@@ -311,17 +422,20 @@ input {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  z-index: 9;
-  padding-bottom: 150px;
+  //min-width: 1700px;
+  //z-index: 9;
+  //padding-bottom: 150px;
 }
 
 #slide2{
-  background-image: url(slide2/white_bg.png);
+  //background-image: url(slide2/first_white_bg_with_text.png);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  z-index: -999;
+  //width: 100%;
+  //min-width: 1700px;
+  //z-index: 8;
 }
 
 #slide3{
@@ -330,7 +444,16 @@ input {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  z-index: 9;
+  //min-width: 1700px;
+  min-height: 100%;
+}
+
+#slide4{
+  background-image: url(slide1/raspberry.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #mimosa{
@@ -338,4 +461,17 @@ input {
   width: 100%;
   height: 100%;
   margin-top: 200px;
+}
+
+#bottom_name{
+  color: white;
+  font-family: 'Gulim';
+  text-align: center;
+  font-size: 2.5em;
+  font-style: bold;
+  line-height: 100%;
+}
+
+.compose_email{
+  margin: 30px;
 }
