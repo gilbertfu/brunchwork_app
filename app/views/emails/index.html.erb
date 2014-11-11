@@ -1,7 +1,7 @@
 <% provide(:title, 'All emails') %>
 <h2>Send an Update to All Emails below</h2>
   <%= form_tag(send_email_path(:email_content, :subject_line)) do %>
-    <div class = "center">
+    <div class = "center_text">
       <div class="field compose_email">
         <div><%= text_area :email, :subject_line, :style => "width:350px;", :rows => 1, :placeholder => "Email Subject" %> </div>
         <%= text_area :email, :email_content, :style => "width:500px;", :rows => 20, :placeholder => "Compose Email..." %>
