@@ -6,7 +6,7 @@
         <div><%= text_area :email, :subject_line, :style => "width:350px;", :rows => 1, :placeholder => "Email Subject" %> </div>
         <%= text_area :email, :email_content, :style => "width:500px;", :rows => 20, :placeholder => "Compose Email..." %>
       </div>
-      <%= submit_tag("Send Email", class: "btn btn-large btn-primary", data: { confirm: "Are you sure you want to send to everybody below?"}) %>
+      <%= submit_tag("Send Email", class: "btn btn-large btn-primary col-md-3 center", data: { confirm: "Are you sure you want to send to everybody below?"}) %>
     </div>
   <% end %>
 <h1>All emails</h1>
