@@ -3,6 +3,9 @@
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
+$grayLighter: #eaeaea;
+$grayDarker: #eaeaea;
+$gray: #eaeaea;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -32,6 +35,11 @@ html {
     background-color:rgba(255,255,255,0.7);
     h1, h2 {
       color: black;
+      font-size: 2em;
+      font-family: "Gulim";
+      margin-bottom: 5px;
+      letter-spacing: -2px;
+      text-align: center;
     }
     width: 400px;
     margin: auto;
@@ -41,7 +49,33 @@ html {
     padding-bottom: 50px;
     margin-top: 100px;
     margin-bottom: 100px;
+    h3{
+        font-size: 1.4em;
+        font-family: "Gulim";
+        margin-bottom: 30px;
+        //letter-spacing: -2px;
+        text-align: center;
+      }
 }  
+
+.transparency h2{
+    color: black;
+    font-size: 2em;
+    font-family: "Gulim";
+    margin-bottom: 5px;
+    letter-spacing: -2px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.transparency h3{
+    font-size: 1.4em;
+    font-family: "Gulim";
+    margin-bottom: 30px;
+    //letter-spacing: -2px;
+    text-align: center;
+    font-weight: bold;
+}
 
 .transparency_slide3  {  
     background-color:rgba(255,255,255,0.4);
@@ -57,12 +91,13 @@ html {
     margin-top: 60px;
     //z-index: -900;
     margin-bottom: 60px;
-    h3{
-      line-height: 50%;
-      font-size: 1em;
-    } 
 }
 
+.transparency_slide3 h3{
+  line-height: 50%;
+  font-weight: bold;
+  font-size: 1em;
+} 
 .transparency_events  {  
     background-color:rgba(194,163, 102,0.3);
     h1, h2 {
@@ -77,14 +112,8 @@ html {
     padding-bottom: 10px;
     margin: auto;
     z-index: 10;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    h3{
-      line-height: 70%;
-      font-size: 1.5em;
-      color: #FFA500;
-      text-align: left;
-    } 
+    margin-top: 10px;
+    margin-bottom: 50px;
     ul{
       list-style-type: none;
     }
@@ -93,6 +122,13 @@ html {
     }
 }
 
+.transparency_events h3{
+  line-height: 100%;
+  font-size: 1.5em;
+  color: #FFA500;
+  text-align: left;
+  font-weight: bold;
+} 
 body {
   //padding-top: 60px;
   height: 100%;
@@ -126,10 +162,19 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
+.how_it_works h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-top: 100px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
-  margin-bottom: 15px;
+  margin-top: 30px;
+  margin-bottom: 5px;
   text-align: center;
 }
 
@@ -232,10 +277,10 @@ input {
   }
 }
 
-.field_with_errors {
+/*.field_with_errors {
   @extend .control-group;
   @extend .error;
-}
+}*/
 
 /* emails index */
 
@@ -481,4 +526,122 @@ input {
 
 .compose_email{
   margin: 30px;
+}
+
+/* From template styles */
+/*------start-features-----*/
+.features{
+	padding:5em 0;
+}
+.head h3{
+	color:#394346;
+	font-size:2em;
+	font-family: 'Gulim';
+	font-weight: bold;
+	margin: 0 0 0.5em 0;
+}
+.head p{
+	color: #8E999C;
+	margin: 0 auto;
+	width: 64%;
+	font-size: 1em;
+	line-height: 1.5em;
+}
+.head h3 span{
+	width:12px;
+	height:20px;
+	display:inline-block;
+//	background:url(../images/arrow-icon.png)no-repeat 0px 0px;
+}
+.features-grid span{
+	height:140px;
+	width:140px;
+	display:inline-block;
+	background:#F3F3F3;
+	border:10px solid #FFA500;
+	border-radius:30em;
+	-webkit-border-radius:30em;
+	-moz-border-radius:30em;
+	-o-border-radius:30em;
+	-ms-border-radius:30em;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+	-ms-transition:0.5s all;
+}
+.features-grid span i{
+	font-size: 3em;
+	color: #FD3B01;
+	margin-top: 0.8em;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+	-ms-transition:0.5s all;
+} 
+.features-grid h3 a{
+	color: #8E999C;
+	font-size: 1.1em;
+	font-weight: 600;
+}
+.features-grid h3 a:hover{
+	text-decoration:none;
+	color:#8E999C;
+}
+.features-grid p{
+	color: #8E999C;
+	font-size: 1em;
+	line-height: 1.5em;
+}
+.features-grid:hover span{
+	background:#ffd27f;
+	//border-color:#FFDCD1;
+}
+.features-grid:hover i{
+	color: #FFF;
+}
+.features-grids{
+	padding: 4em 0 0em;
+}
+
+#email {
+    background-image: url(mail_2.png);
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position:center;
+    z-index: 10;
+}
+
+#handshake {
+    background-image: url(join.png);
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position:center;
+    z-index: 10;
+}
+
+#laptop {
+    padding: 10px;
+    background-image: url(laptop-2.png);
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position:center;
+    z-index: 10;
+}
+
+#users {
+    background-image: url(users.png);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position:center;
+    z-index: 10;
+}
+
+#glasses {
+    background-image: url(glasses.png);
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position:center;
+    z-index: 10;
 }
