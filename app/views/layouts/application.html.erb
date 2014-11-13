@@ -2,13 +2,13 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
-    <!--<link rel="shortcut icon" href="images/tab_icon-20141112-favicon.ico" >-->
+    <%= favicon_link_tag 'tab_icon-20141112-favicon.ico' %>
     <script type="text/javascript" src='http://codeorigin.jquery.com/jquery-2.0.3.min.js'></script>
     <!--<script type="text/javascript" src='assets/javascripts/jquery.stellar.min.js'></script>
     <script type="text/javascript" src='assets/javascripts/waypoints.js'></script>
     <script type="text/javascript" src='assets/javascripts/jquery.easing.1.3.js'></script>
     <script type="text/javascript" src='assets/javascripts/main.js'></script>-->
-    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>
     	$(function() {
     	  $('a[href*=#]:not([href=#])').click(function() {
@@ -25,7 +25,7 @@
     	    }
     	  });
     	});
-  	</script>-->
+  	</script>
     <%= stylesheet_link_tag 'application', media: 'all',
                                            'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
