@@ -1,9 +1,9 @@
 BrunchworkApp::Application.routes.draw do
   resources :emails, only: [:create, :destroy, :show, :index, :send_email]
   root "static_pages#home"
-  match 'help', to: "static_pages#help", via: 'get'
-  match 'about', to: "static_pages#about", via: 'get'
-  match 'contact', to: "static_pages#contact", via: 'get'
+  #match 'help', to: "static_pages#help", via: 'get'
+  #match 'about', to: "static_pages#about", via: 'get'
+  #match 'contact', to: "static_pages#contact", via: 'get'
   match 'emails/unsubscribe/:unsubscribe_hash' => 'emails#show', via: 'get', :as => 'show'
   match 'emails/unsubscribe/:unsubscribe_hash' => 'emails#destroy', via: 'delete', :as => 'unsubscribe'
   match 'emails/send_email/:email_content/:subject_line' => 'emails#send_email', via: 'post', :as => 'send_email'

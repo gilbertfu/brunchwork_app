@@ -4,7 +4,7 @@
       <nav>
         <ul class="nav navbar-nav pull-left">
           <li>
-            <%= link_to  '#slide1', id: "logo" do %>
+            <%= link_to  root_url + '#slide1', id: "logo" do %>
               <font color="#FFA500">Brunch</font><font color="#808080">Work</font>
             <% end %>
           </li>
@@ -12,8 +12,8 @@
       </nav>
       <nav>
         <ul class="nav navbar-nav pull-right">
-          <li ><%= link_to "How It Works",   '/#slide2' %></li>
-          <li><%= link_to "About Us",   '/#slide3' %></li>
+          <li ><%= link_to "How It Works",  root_url + '#slide2' %></li>
+          <li><%= link_to "About Us",   root_url + '#slide3' %></li>
           <!--<li><%= link_to "Log in", '#' %></li> -->
         </ul>
       </nav>
