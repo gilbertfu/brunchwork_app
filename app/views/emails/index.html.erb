@@ -9,7 +9,7 @@
       <%= submit_tag("Send Email", class: "btn btn-large btn-primary col-md-3 center", data: { confirm: "Are you sure you want to send to everybody below?"}) %>
     </div>
   <% end %>
-<h1>All emails</h1>
+<h1>All <%= @emails.count %> emails</h1>
 <ul class="emails">
 	<%= render @emails %>
 </ul>
