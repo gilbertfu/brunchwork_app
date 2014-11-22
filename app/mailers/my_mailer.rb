@@ -1,11 +1,11 @@
 class MyMailer < ActionMailer::Base
-  default :from => 'brunchwork.test@gmail.com'
+  default :from => 'Brunchwork'
   
   def welcome_email(email)
     @email = email
     
     mail(to: email.email,
-         from: 'brunchwork.test@gmail.com',
+         from: 'Brunchwork',
          subject: 'Welcome!')
   end
   
@@ -13,7 +13,7 @@ class MyMailer < ActionMailer::Base
     @email = email
     @content = content
     mail(to: email.email,
-         from: 'brunchwork.test@gmail.com',
+         from: 'Brunchwork',
          subject: subject_line)
   end
 end
