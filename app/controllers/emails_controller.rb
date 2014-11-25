@@ -8,7 +8,7 @@ class EmailsController < ApplicationController
     @email = Email.new(email_params)
     if @email.save
       MyMailer.welcome_email(@email).deliver
-      #flash[:success] = "Thank You For Subscribing!"
+      flash[:success] = "Thank You For Subscribing!"
       redirect_to root_url
     else
        render "static_pages/home"
@@ -32,7 +32,7 @@ class EmailsController < ApplicationController
       @email = Email.find_by(:unsubscribe_hash=>params[:unsubscribe_hash])
       if @email != nil
         @email.destroy
-        #flash[:success] = "Successfully Unsubscribed"
+        flash[:success] = "Successfully Unsubscribed"
         redirect_to root_url
       end
   end
@@ -44,7 +44,7 @@ class EmailsController < ApplicationController
     @emails.each do |email|
       MyMailer.newsletter_email(email, @content, @subject).deliver
     end
-    #flash[:success] = "Messages Sent!"
+    flash[:success] = "Messages Sent!"
     redirect_to emails_path
   end
   

@@ -9,7 +9,8 @@
       </h3> 
           <%= form_for(@email) do |f| %>
           <%= render 'shared/error_messages' %>
-          <%= f.text_field :email, :placeholder => "Enter your email to join!" %> <div class="center_text"><%= f.submit "Join", class: "btn btn-large btn-warning col-md-3 center"%> </div>
+          <%= f.text_field :email, :placeholder => "Enter your email to join!" %> 
+          <div class="center_text"><%= f.submit "Join", class: "btn btn-large btn-warning col-md-3 center"%> </div>
           <% end %>
     </div>
   </div>

@@ -9,7 +9,7 @@ describe "StaticPages" do
     
     it "should have title 'Home'" do
       visit root_path
-      expect(page).to have_title('BrunchWork')
+      expect(page).to have_title('brunchwork')
       expect(page).not_to have_title('| Home')
     end
     
@@ -17,7 +17,7 @@ describe "StaticPages" do
 
       before { visit root_path }
   
-      let(:submit) { "Subscribe" }
+      let(:submit) { "Join" }
   
       describe "with invalid information" do
         it "should not create an email" do
@@ -27,7 +27,7 @@ describe "StaticPages" do
   
       describe "with valid information" do
         before do
-          fill_in "Email",        with: "user@example.com"
+          fill_in "email_email",        with: "user@example.com"
         end
   
         it "should create an email" do
@@ -37,38 +37,4 @@ describe "StaticPages" do
     end
   end
   
-  describe "Help page" do
-    it "should have content 'Help'" do
-      visit help_path
-      expect(page).to have_content('Help')
-    end
-    it "should have title 'Help'" do
-      visit help_path
-      expect(page).to have_title('BrunchWork | Help')
-    end
-  end
-  
-  describe "About page" do
-    it "should have the content 'About Us'" do
-      visit about_path
-      expect(page).to have_content('About Us')
-    end
-    
-    it "should have title 'About Us'" do
-      visit about_path
-      expect(page).to have_title('BrunchWork | About Us')
-    end
-  end
-  
-  describe "Contact page" do
-    it "should have the content 'Contact'" do
-      visit contact_path
-      expect(page).to have_content('Contact')
-    end
-    
-    it "should have title 'Contact'" do
-      visit contact_path
-      expect(page).to have_title('BrunchWork | Contact')
-    end
-  end
 end
