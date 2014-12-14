@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 6 }
   mount_uploader :image, ImageUploader
+  mount_uploader :resume, ResumeUploader
   
   def User.new_remember_token
     SecureRandom.urlsafe_base64

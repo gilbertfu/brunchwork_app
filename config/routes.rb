@@ -12,6 +12,9 @@ BrunchworkApp::Application.routes.draw do
   match 'emails/send_email/:email_content/:subject_line' => 'emails#send_email', via: 'post', :as => 'send_email'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+  resources :users do
+    put :admin, :on => :member
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

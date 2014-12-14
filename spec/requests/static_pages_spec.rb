@@ -4,7 +4,7 @@ describe "StaticPages" do
   describe "Home page" do
     it "should have content 'Brunchwork'" do
       visit root_path
-      expect(page).to have_content('BrunchWork')
+      expect(page).to have_content('Introducing the power brunch')
     end
     
     it "should have title 'Home'" do

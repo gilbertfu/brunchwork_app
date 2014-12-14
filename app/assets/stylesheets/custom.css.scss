@@ -662,3 +662,21 @@ input {
   margin-top: 50px;
   padding-top: 10px;
 }
+
+/* Users index */
+
+.users {
+  list-style: decimal;
+  //margin: 0;
+  li {
+    
+   // overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:last-child {
+      border-bottom: 1px solid $grayLighter;
+    }
+  }
+}
+
+a:link   { text-decoration:underline}
