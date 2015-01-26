@@ -1,0 +1,29 @@
+<%= form_for(@blogpost, :html => { :multipart => true }) do |f| %>
+  <% if @blogpost.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-error">
+      The form contains <%= pluralize(@blogpost.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @blogpost.errors.full_messages.each do |msg| %>
+      <li>* <%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+  <div class="send-emails">
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder: "Blogpost Title..." %>
+    <%= f.cktext_area :content, :style => "width:500px;", :rows => 20, placeholder: "Blogpost..." %>
+    <%#= f.input :content %>
+    <%#= f.text_area :content, :class => "textarea", :placeholder => "Blogpost...", :style => "width: 810px; height: 200px" %>
+    <%= f.fields_for :photos do |p| %>
+     <div>
+       <%= p.label :image %><br>
+       <%= p.file_field :image, :multiple => true, name: "photos[image][]" %>
+     </div>
+   <% end %>
+   
+  </div>
+  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+<% end %>

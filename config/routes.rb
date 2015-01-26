@@ -2,6 +2,12 @@ BrunchworkApp::Application.routes.draw do
   resources :emails, only: [:create, :destroy, :show, :index, :send_email]
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :events, only: [:create, :destroy, :new, :index, :show]
+  resources :blogposts, only: [:create, :destroy, :new, :index, :show]
+  resources :blogposts do
+    resources :comments, only: [:create]
+  end
+  resources :comments, only: [:destroy]
   root "static_pages#home"
   #match 'help', to: "static_pages#help", via: 'get'
   #match 'about', to: "static_pages#about", via: 'get'
@@ -14,7 +20,9 @@ BrunchworkApp::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   resources :users do
     put :admin, :on => :member
+    put :private_resume, :on => :member
   end
+  mount Ckeditor::Engine => '/ckeditor'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

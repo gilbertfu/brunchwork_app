@@ -1,0 +1,108 @@
+<% provide(:title, 'All users') %>
+
+<div class="container">
+  <br><br>
+<h1>All Events</h1>
+<div class="row">
+		<div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+			<ul class="event-list">
+        <% @events.each do |event| %>
+          <li>
+            <time datetime=<%= event.date_time.strftime("%Y-%m-%d") %>>
+ 							<span class="day"><%= event.date_time.strftime("%d") %></span>
+							<span class="month"><%= event.date_time.strftime("%b") %></span>
+							<span class="year"><%= event.date_time.strftime("%Y") %></span>
+							<span class="time"><%= event.date_time.strftime("%I:%M %p") %></span>               
+            </time>
+            <% if !event.photos.first.nil? %>
+      				  <%= image_tag event.photos.first.image_url, :size => "150x150"  %>
+      			<% end %>
+            <div class="info">
+							<h2 class="title"><%= link_to event.title, event %></h2>
+							<p class="desc"><%= event.about %></p>
+							<ul>
+							  <li style="width:50%;"><span class="fa fa-globe"></span> <%= event.location %> </li>
+							  <li style="width:50%;">  <%= event.event_type %> </li>
+							</ul>
+						</div>
+             <% if current_user.admin? %>
+              <%= link_to "delete", event, method: :delete,
+                                        data: { confirm: "You sure?" } %>
+            <% end %>
+          </li>
+       <% end %>
+      </ul>
+     <div id="page_enum">
+        <ul>
+          <%= will_paginate %>
+        </ul>
+      </div>
+    </div>
+    </div>
+    </div>
+    <!--<% eb_client = EventbriteClient.new({ access_token: ENV['OAUTH_TOKEN'] }) %>-->
+    <% eb_client = EventbriteClient.new({ access_token: 'TFRPXVUYU6YDUM2FL3VY' }) %>
+    <!-- COMMENTED OUT BUT USEFUL EXAMPLE-->
+    <!--<% response = eb_client.event_get({ id: 14817227727}) %>
+    <%= render inline: widget_html = EventbriteWidgets::buttonWidget(response['event']) %>
+    <%= render inline: widget_html = EventbriteWidgets::linkWidget(response['event']) %>
+    <br>
+    <% response['event']['tickets'].each do |ticket| %>
+      <%= ticket['ticket']['price'] %>
+      <br>
+    <% end %>-->
+    <!------------------------------------->
+    
+      <% event_list = eb_client.organizer_list_events( {id:'7896356262'} ) %>
+    <% if false %>
+    <!--<% event_list = eb_client.event_search( {organizer: 'brunchwork'} ) %>-->
+    
+    <% total_events = event_list['events'][0]['summary']['total_items'] %>
+    <% end %>
+    <% total_events = 2%>
+    <% total_events %>
+    <% for i in 1..total_events %>
+    
+       <% event = event_list['events'][i] %>
+       <% event_id = event['event']['id'] %>
+       <!-- MUST MAKE SURE TO HANDLE HTTP RESPONSE ERRORS-->
+       <% begin %>
+         <% event_list_attendees = eb_client.event_list_attendees( {id: event_id.to_s} ) %>
+         <% num_attendees = event_list_attendees['attendees'].length %>
+       <% rescue %>
+         <% num_attendees = 0 %>
+       <% end %>
+       <% event_time = event['event']['start_date'] %>
+       
+        <div class="container">
+          <div class="row">
+            <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+        	  	<ul class="event-list">
+                <li>
+                  <% date_time = DateTime.parse(event['event']['start_date']) %>
+          
+                  <time datetime=<%= date_time.strftime("%Y-%m-%d") %>>
+           					<span class="day"><%= date_time.strftime("%d") %></span>
+          					<span class="month"><%= date_time.strftime("%b") %></span>
+          					<span class="year"><%= date_time.strftime("%Y") %></span>
+          					<span class="time"><%= date_time.strftime("%I:%M %p") %></span>               
+                  </time>
+          
+                  <div class="info">
+          					<h2 class="title"><%= link_to event['event']['title'], event['event']['url'], :target => '_blank'%></h2>
+          					<p class="desc"><%#= render inline: event['event']['description'] %></p>
+          					<ul>
+          					  <li style="width:50%;"><span class="fa fa-globe"></span> 
+          					  <%= event['event']['venue']['address'] %>
+          					  <%= event['event']['venue']['city'] %>,
+          					  <%= event['event']['venue']['region'] %>
+          					  </li>
+          					  <li style="width:50%;">  <%= num_attendees %> <%= 'member'.pluralize %> attending </li>
+          
+          					</ul>
+          				</div>
+                </li>
+</div>
+</div>
+</div>
+    <%end%>

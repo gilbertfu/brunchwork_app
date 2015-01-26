@@ -1,6 +1,36 @@
-<footer class="footer full_width">
+<!--<footer class="footer full_width">
   <div id="bottom_name">Coming in 2015! <br> Contact us at <a href="mailto:founders@brunchwork.com?" target="_top">founders@brunchwork.com</a></div>
-  <!--<nav class="side_margins"> -->
-
-  <!--</nav>-->
-</footer>
+</footer> -->
+<div class="footer">
+		<div class="wrap">
+			<div class="social_2 social_3">	
+	           <ul>	
+				    <li class="facebook"><a href="#"><span> </span></a></li>
+				    <li class="twitter"><a href="#"><span> </span></a></li>	 	
+					<li class="google"><a href="#"><span> </span></a></li>
+			  </ul>
+		 	  </div>
+		 	 </div>
+		 	  <!-- scroll_top_btn 
+		<script type="text/javascript" src="move-top.js"></script>
+		<script type="text/javascript" src="easing.js"></script> -->
+	    <script type="text/javascript">
+			$(document).ready(function() {
+			
+				var defaults = {
+		  			containerID: 'toTop', // fading element id
+					containerHoverID: 'toTopHover', // fading element hover id
+					scrollSpeed: 1200,
+					easingType: 'linear' 
+		 		};
+				
+				
+				$().UItoTop({ easingType: 'easeOutQuart' });
+				
+			});
+		</script>
+		 <a href=<%= request.original_url + "#page_top" %> id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
+		 	 <div class="copy">
+			       <p>&copy; 2014 Template by <a href="http://w3layouts.com" target="_blank">w3layouts</a></p>
+		        </div> 
+</div>

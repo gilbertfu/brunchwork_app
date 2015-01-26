@@ -1,0 +1,95 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!--------start-blog----------->
+<div class="blog">
+  <br><br>
+	<div class="banner" id='page_top'>
+		<h2>Blog</h2>
+	</div>
+	<div class="main">
+		  	<div class="wrap">
+			 	<div class="single-top">
+				 <div class="wrapper_single">
+					  <div class="wrapper_top">
+						<div class="grid_1 alpha">
+							<div class="date">
+								<span>
+									22
+								</span>
+								Sep 2014
+							</div>
+						</div>
+					 	<div class="content span_2_of_single">
+						   		<h1 ><%= @blogpost.title %></h1>
+						   		<br>
+
+									<div class="clear"> </div>
+								<div class="content">
+									<div class="span-1-of-1">
+										<% if !@blogpost.photos.first.nil? %>
+      				        <%= image_tag( @blogpost.photos.first.image_url, :size => "300x300", :class => "m_img")  %>
+      			        <% end %>
+									</div>
+									<div class="span-1-of-2">
+							    	<p>	<%= raw @blogpost.content %></p>
+                  </div>
+								</div>	
+              
+								<div class="grid_2_page">
+									<ul>
+										<br>
+										<div class="clear"> </div>
+									</ul>
+								</div>
+						        <div class="comments">
+						        	<h4><%= pluralize(@blogpost.comments.count, "comment") %></h4>
+						        	<% @comments.each do |comment| %>
+						        	<div class="c_grid">
+						        		<div class="person_1">
+						        		  <% @user = User.find_by(:id => comment.user_id) %>
+						        			<a href=<%= user_path(@user)%>><span>
+						        			<%= image_tag @user.image_url(:thumb).to_s %> </span></a>
+						        			
+						        		</div>
+						        		<div class="desc">
+						        			<div class="c_sub_grid">
+						        			<p><a><%= comment.created_at.strftime("%b %d %Y - %l:%M %p") %> </a></p>
+						        			<div class="clear"> </div>
+						        			</div>
+						        			<div class="para">
+						        			<%= comment.content %>
+						        			</div>
+						        			<div class="links_inner">
+        									<%= @user.name %>
+        									</div>
+						        		</div>
+						        		<div class="clear"> </div>
+						        	</div>
+						        	  <% end %>
+						        	
+						        </div>
+						        
+						        <div class="comments-area">
+				  		        <h4>Leave a Comment</h4>
+									<%= form_for([@blogpost, @comment]) do |f| %>
+                    <%#= render 'shared/error_messages', object: f.object %>
+                    <div class="field">
+                      <%= f.text_area :content, placeholder: "Compose comment..." %>
+                    </div>
+                    <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+                  <% end %>
+							  </div>
+					</div>
+					</div>
+					<div class="clear"> </div>
+				</div>
+				
+				<div class="clear"> </div>
+			</div>
+		</div>
+	</div>
+	<!--------//end-blog_inner----------->

@@ -1,0 +1,29 @@
+
+				<% if !@user.resume_url.nil? && !@user.resume_url.empty? %>
+					     <% if current_user?(@user) %>
+
+						       <% if @user.private_resume?  %>                 
+				<%#= link_to "Make Resume Public", private_resume_user_path(@user), :class => "btn",
+						               :method => :put, :remote => true,
+						                data: { confirm: "This will show your resume from all brunchwork users. Confirm?" } %>
+						       <% else %>
+						          <%#= link_to "Make Resume Private", private_resume_user_path(@user), :class => "btn",
+						               :method => :put, :remote => true,
+						               data: { confirm: "This will hide your resume from all brunchwork users. Confirm?" } %>
+						       <% end %> 
+						       
+					     <% end %>
+					     <!-- If viewing own profile or resume not set to private, show resume -->
+						 <% if current_user?(@user) || !@user.private_resume?  %>
+							 	<iframe src="https://docs.google.com/gview?url=<%= request.host_with_port + @user.resume_url.to_s %>&embedded=true" 
+							 	      style="width:600px; height:750px" frameborder="0"></iframe>
+					   <% else %>
+					     <h4>Resume Not Present </h4>
+						 <% end %> 
+					 <% else %>
+					   <% if current_user?(@user) %>
+					     <p> <font text-decoration: underline><%= link_to "Add Resume", edit_user_path%></font></p>
+					     <% else %>
+					     <h4>Resume Not Present </h4>
+					   <% end %>
+					 <% end %>

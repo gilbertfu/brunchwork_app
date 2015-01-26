@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_and_belongs_to_many :events 
+  has_one :photo, as: :imageable
+  has_many :comments, dependent: :destroy
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   validates :name, presence: true, length: { maximum: 50 }
@@ -9,6 +12,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
   mount_uploader :image, ImageUploader
   mount_uploader :resume, ResumeUploader
+  
   
   def User.new_remember_token
     SecureRandom.urlsafe_base64

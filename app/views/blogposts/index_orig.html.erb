@@ -1,0 +1,27 @@
+<% provide(:title, 'Blog') %>
+
+<div class="container">
+  <h1>All Blog Posts</h1>
+  <div class="col-md-6">
+<ul>
+  <% @blogposts.each do |blogpost| %>
+    <li>
+      <%= blogpost.title %> <%= blogpost.content %>
+      <div class="profile_pic">
+				<% blogpost.photos.each do |p| %>
+				  <% if !blogpost.photos.first.nil? %>
+            <%= image_tag p.image_url, :size => "150x150" %>
+          <% end %>
+        <% end %>
+			</div>
+      <% if current_user.admin? %>
+        | <%= link_to "delete", blogpost, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate %>
+
+</div>
+</div>

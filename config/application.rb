@@ -5,6 +5,7 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+#require 'eventbrite-client'
 
 module BrunchworkApp
   class Application < Rails::Application
@@ -20,6 +21,7 @@ module BrunchworkApp
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.assets.precompile += %w( ckeditor/* )
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
       address:              'smtp.gmail.com',
@@ -31,5 +33,7 @@ module BrunchworkApp
       enable_starttls_auto: true  }
     config.action_mailer.default_url_options = { host: 'https://rails-tutorial-c9-gilbertfu.c9.io' }
     config.action_mailer.default :charset => "utf-8"
+    eb_client = EventbriteClient.new({ access_token: 'GZW7DOQMUBNPMNJRTR54'})
+    #config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
   end
 end

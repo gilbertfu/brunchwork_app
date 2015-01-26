@@ -1,0 +1,37 @@
+Evan
+week 1/26 - 1/31
+    - call eventbrite api on regular schedule (< 5000 times a day)
+      (https://www.ruby-toolbox.com/categories/scheduling)
+      (
+      - save all modified/ new events in our db
+        (https://developer.eventbrite.com/docs/event-search/)
+        -event search by event organizer
+        - check date_modified.range_start
+        - check date_modified.range_end
+        - check since_id
+      - save all new attending users for upcoming events
+        (https://developer.eventbrite.com/docs/event-attendees/)
+        - check order_by
+      - display events directly from our own db
+      - display users' attending list directly from our own db
+        
+
+2/1-2/7
+- finish invite code
+  - hash email+"brunchwork" % 6 characters
+  - send email to founders@brunchwork.com
+  - either create a page for Pauline/Paulina to send out users' invite code or have them manually send the email with the code
+
+
+
+Gilbert
+week 1/26 - 1/31
+- add edit/delete blogpost
+- delete profile pic/resume
+- make blogpost content not viewable to non signed in users
+- front end bs
+
+2/1-2/7
+- linked in api
+- carousal for both events on home page and blog pictures
+- front end bs

@@ -1,0 +1,42 @@
+<% provide(:title, 'Sign up') %>
+
+<div class='slide' id='slide1'>
+  <div class="container">
+    <div class="col-md-6 transparency center">
+        
+      <h2> 
+         Sign Up
+      </h2>
+      <%= form_for @user, :html => { :multipart => true } do |f| %>
+      <%= render 'shared/error_messages_users' %>
+
+      <%= f.label :name, "Full Name*" %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email, "Email*" %>
+      <%= f.text_field :email %>
+      
+      <%= f.label :school %>
+      <%= f.text_field :school %>
+      
+      <%= f.label :company %>
+      <%= f.text_field :company %>
+      
+      <%= f.label :work_position, "Work Position" %>
+      <%= f.text_field :work_position %>
+      
+      <%#= f.label :image, "Profile Picture" %>
+      <%#= f.file_field :image %>
+
+      <%= f.label :password, "Password*" %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation*" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+    <% end %>
+    </p>* denotes required field</p>
+    </div>
+  </div>
+</div>

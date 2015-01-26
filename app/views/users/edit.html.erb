@@ -1,0 +1,93 @@
+<% provide(:title, "Edit user") %>
+
+
+
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!-- start slider -->
+<div class="slider_bg">
+<div class="wrap">
+	<div class="slider">
+		<h2><%= @user.name %></h2>
+	</div>
+</div>
+</div>
+<!-- start main -->
+<div class="main_bg">
+<div class="wrap">
+	<div class="main_profile">
+		<div class="content_profile">
+		<!-- start details -->
+			<div class="details">
+			
+
+			<div class="container">
+  <h1>Update your profile</h1>
+  <div class="col-md-6">
+    <%= form_for @user, :html => { :multipart => true } do |f| %>
+      <%= render 'shared/error_messages_users' %>
+
+      <%= f.label :name, "Full Name*" %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email, "Email*" %>
+      <%= f.text_field :email %>
+      
+      <%= f.label :school %>
+      <%= f.text_field :school %>
+      
+      <%= f.label :company %>
+      <%= f.text_field :company %>
+      
+      <%= f.label :work_position, "Work Position" %>
+      <%= f.text_field :work_position %>
+      
+      <%= f.label :image, "Profile Picture" %>
+      <%= f.file_field :image %>
+      
+      <%= f.label :resume, "Resume" %>
+      <%= f.file_field :resume %>
+
+      <%= f.label :old_password, "Old Password*" %>
+      <%= f.password_field :old_password %>
+
+      <%= f.label :password, "New Password" %>
+      <%= f.password_field :password %>
+      
+      <%= f.label :password_confirmation, "Confirm Password" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+    </p>* denotes required field</p>
+  </div>
+</div>
+		
+			
+			<div class="clear"></div>
+		</div>
+		<!-- end details -->
+	 </div>
+	</div>
+</div>
+</div>
+<div class="footer_bg">
+<div class="wrap">
+	<div class="footer">
+		
+		<div class="footer_top">
+			<div class="copy">
+				<p class="link"><span>© All rights reserved | Template by&nbsp;<a href="http://w3layouts.com/"> W3Layouts</a></span></p>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>

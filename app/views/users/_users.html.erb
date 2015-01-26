@@ -1,0 +1,26 @@
+<%- page = params[:page].to_i%>
+<ol class= "users", start = <%= if page > 1 then (page-1)*10+1 else 1 end%>>
+  <% @users.each do |user| %>
+    <li>
+      <%= image_tag( user.image_url(:thumb).to_s, :size => "100x100")  %>
+      
+      <%= link_to user.name, user %>
+        <% if current_user.admin? && !current_user?(user) %>
+          |  <%= link_to "Delete User", user, :method => :delete,  
+                     data: { confirm: 'Are you sure?' }, remote: true%>
+        <% if user.admin?  %>                 
+         | <%#= link_to "remove admin", admin_user_path(user), :method => :put,
+                                  data: { confirm: "You sure?" } %>
+           <%= link_to "Revoke Admin", admin_user_path(user), :method => :put,  
+                     data: { confirm: 'Are you sure?' }, remote: true %>
+        <% else %>
+         | <%#= link_to "make admin", admin_user_path(user), :method => :put,
+                                  data: { confirm: "You sure?" } %>
+            <%= link_to "Make Admin", admin_user_path(user), :method => :put,  
+                     data: { confirm: 'Are you sure?' }, remote: true %>
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+</ol>
+<%#= will_paginate %>
