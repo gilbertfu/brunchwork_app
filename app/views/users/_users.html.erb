@@ -6,7 +6,7 @@
       
       <%= link_to user.name, user %>
         <% if current_user.admin? && !current_user?(user) %>
-          |  <%= link_to "Delete User", user, :method => :delete,  
+          |  <%= link_to "Delete Member", user, :method => :delete,  
                      data: { confirm: 'Are you sure?' }, remote: true%>
         <% if user.admin?  %>                 
          | <%#= link_to "remove admin", admin_user_path(user), :method => :put,

@@ -4,7 +4,7 @@
       <nav>
         <ul class="nav navbar-nav pull-left">
           <li>
-            <%= link_to  root_url + '#slide1', id: "logo" do %>
+            <%= link_to  root_url, id: "logo" do %>
               <font color="#FFA500">brunch</font><font color="#808080">work</font>
             <% end %>
           </li>
@@ -30,14 +30,14 @@
                 </li>
               </ul>
             </li>
-            <li><%= link_to "Users", users_path %></li>
+            <li><%= link_to "Members", users_path %></li>
           <% else %>
             <!--<li ><%= link_to "How It Works",  root_url + '#slide2' %></li>
             <li><%= link_to "About Us",   root_url + '#slide3' %></li>-->
             <li><%= link_to "Sign in", signin_path %></li>
           <% end %>
           <li><%= link_to "Events", events_path %></li>
-          <li><%= link_to "Blog", blogposts_path %></li>
+          <li><%= link_to "Food for thought", blogposts_path %></li>
         </ul>
       </nav>
    </div> 

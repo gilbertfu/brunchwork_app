@@ -3,7 +3,7 @@ BrunchworkApp::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :events, only: [:create, :destroy, :new, :index, :show]
-  resources :blogposts, only: [:create, :destroy, :new, :index, :show]
+  resources :blogposts#, only: [:create, :destroy, :new, :index, :show]
   resources :blogposts do
     resources :comments, only: [:create]
   end
@@ -21,6 +21,8 @@ BrunchworkApp::Application.routes.draw do
   resources :users do
     put :admin, :on => :member
     put :private_resume, :on => :member
+    #put :remove_resume, :on => :member
+    #put :remove_prof_pic, :on => :member
   end
   mount Ckeditor::Engine => '/ckeditor'
   

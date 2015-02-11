@@ -1,23 +1,27 @@
-<div class='slide' id='slide1' data-slide='1' data-stellar-background-ratio='0.5'>
+<%#= javascript_include_tag('eventbrite_for_home.js') %>
+<div class='home_slide' id='slide1' data-slide='1' data-stellar-background-ratio='0.5'>
     <div id='page_top'></div>
   <div class="container">
     <div class="col-md-6 transparency center">
         
       <h2> 
          Introducing the power brunch</h2>
-         <h3>
-         Build your network and move your career forward
+         <h3 text-align="left">
+         We are young, successful and hungry for the next opportunity. And so are you. 
+         <br> <br> You shouldn't have to settle for a job you don't love. 
+         It should be easy to explore your options, and build skills and connections. As easy as going to brunch with friends.
+				<br>
+         <br>Are you ready?
       </h3> 
           <%= form_for(@email) do |f| %>
           <%= render 'shared/error_messages' %>
-          <%= f.text_field :email, :placeholder => "Enter your email to join!" %> 
-          <div class="center_text"><%= f.submit "Join", class: "btn btn-large btn-warning col-md-3 center"%> </div>
+          <%= f.text_field :email, :placeholder => "Enter your email" %> 
+          <div class="center_text"><%= f.submit "Join", class: "btn btn-large btn-warning center"%> </div>
           <% end %>
     </div>
   </div>
 </div>
 <div id="slide2" data-slide='2' data-stellar-background-ratio='0.5'>
-<!--<%= image_tag("first_white_bg_with_text_3.png") %>-->
 		<!----start-feartures----->
 		<div id="fea" class="features">
 		    <h1>How It Works</h1>
@@ -48,7 +52,7 @@
 					</div>
 					<div class="col-md-1 features-grid">
 				        </div>
-					<div class="clearfix"> </div>
+					
 				</div>
 				<!---- //End-features-grids---->
 			</div>
@@ -72,18 +76,16 @@
              </h3>
           </div>
     </div>-->
+    
+		
 </div>
-<div class='slide' id='slide3' data-slide='3'>
+
+<div class='home_slide' id='slide3' data-slide='3'>
   <div class="container">
     <div class="col-md-8 center transparency_slide3">
 
-      <h1> About Us</h1>
+      <!--<h1> About Us</h1>
          <h3>
-           
-
-
-
-
         <p>You will spend 90,000 hours at work in your lifetime. You shouldn't have to settle for a job you don't love. 
           It should be easy to explore your options, and build skills and connections. As easy as going to brunch with friends.
         <br>
@@ -91,9 +93,42 @@
         <br>
         <br>Are you ready for brunch?
         </p>
-      </h3> 
+      </h3> -->
+        <section class="flex-container">
+
+					  <h1>Notable Speakers</h1>
+						<div class="flexslider">
+							<ul class="slides" id="rotating_event">
+								<li>
+									<div class="flex-twitter-icon"></div>
+									<h2 class="twitter-post-username">
+									<a href="#">AOS New York @aod</a> <span>/ 35 min</span>
+									</h2>
+									<p class="twitter-post">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut tellus ac nulla semper rhoncus. Nullam a odio porttitor, dictum turpis vitae, pretium ante amet.</p>
+								</li>
+								<li>
+									<div class="flex-twitter-icon"></div>
+									<h2 class="twitter-post-username">
+									<a href="#">AOS New York @aod</a> <span>/ 35 min</span>
+									</h2>
+									<p class="twitter-post">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut tellus ac nulla semper rhoncus. </p>
+								</li>
+								<li>
+									<div class="flex-twitter-icon"></div>
+									<h2 class="twitter-post-username">
+									<a href="#">AOS New York @aod</a> <span>/ 35 min</span>
+									</h2>
+									<p class="twitter-post">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut tellus ac nulla semper rhoncus. Nullam a odio porttitor.</p>
+								</li>
+							</ul>
+
+			</div>
+		</section>
 
     </div>
   </div>
+  
+      
 </div>
+
 

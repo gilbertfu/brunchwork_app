@@ -2,9 +2,11 @@ Evan
 week 1/26 - 1/31
     - call eventbrite api on regular schedule (< 5000 times a day)
       (https://www.ruby-toolbox.com/categories/scheduling)
-      (
+      (https://rubygems.org/gems/whenever)
       - save all modified/ new events in our db
         (https://developer.eventbrite.com/docs/event-search/)
+        - if can't see sold-out events, use this:
+          (http://developer.eventbrite.com/docs/user-owned-events/)
         -event search by event organizer
         - check date_modified.range_start
         - check date_modified.range_end
@@ -27,8 +29,9 @@ week 1/26 - 1/31
 Gilbert
 week 1/26 - 1/31
 - add edit/delete blogpost
-- delete profile pic/resume
+- delete old profile pic/resume when a new one is uploaded
 - make blogpost content not viewable to non signed in users
+- carrier wave image uploader save only thumb
 - front end bs
 
 2/1-2/7

@@ -1,9 +1,9 @@
 class BlogpostsController < ApplicationController
-  before_action :signed_in_user, only: [:create, :destroy, :new, :show]
-  before_action :admin_user, only: [:create, :destroy, :new]
+  before_action :signed_in_user, only: [:create, :destroy, :new, :show, :edit, :update]
+  before_action :admin_user, only: [:create, :destroy, :new, :edit, :update]
 
   def index
-    @blogposts = Blogpost.paginate(page: params[:page], :per_page => 5)
+    @blogposts = Blogpost.paginate(page: params[:page], :per_page => 6)
   end
   
   def show
@@ -34,9 +34,29 @@ class BlogpostsController < ApplicationController
   end
 
   def destroy
-    Blogpost.find(params[:id]).destroy
+    @blogpost = Blogpost.find(params[:id])
+    for i in 1..@blogpost.photos.count
+      @blogpost.photos[i-1].remove_image!
+    end
+    @blogpost.save
+    @blogpost.destroy
     flash[:success] = "Blogpost deleted."
     redirect_to blogposts_url
+  end
+  
+  def edit
+    @blogpost = Blogpost.find(params[:id])
+  end
+  
+  def update
+    @blogpost = Blogpost.find(params[:id])
+    #update all attributes
+    if @blogpost.update_attributes(blogpost_params)
+      flash[:success] = "Profile updated"
+      redirect_to @blogpost
+    else
+      render 'edit'
+    end
   end
 
   private

@@ -10,8 +10,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class="slider_bg" >
 <div class="wrap">
 	<div class="slider">
-		<h2><%= @user.name %></h2>
-		<h3>profile</h3>
 	</div>
 </div>
 </div>
@@ -23,49 +21,81 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!-- start details -->
 			<div class= "wrap">
 				<div class="details">
-					<div class="span_of_4">
-						<div class="span1_of_4">
-							<div class="det_pic">
+												<div class="det_pic"> <!-- align="center" -->
 							  <%= image_tag @user.image_url(:thumb).to_s %>
 							</div>
+					<div class="span_of_4">
+						<div class="span1_of_4">
+
 				
-							<h4>Information</h4>
-							<span>Email</span>
-							<p><%= @user.email %></p>
-							<span>School</span>
-							<p><%= @user.school %></p>
-							<span>Occupation</span>
-							<p><%= @user.work_position %></p>
-							<span>School</span>
-							<p><%= @user.company %></p>
+							<div class="name_box">
+								<h1><%= @user.name %></h1>
+								<p><%= @user.email %></p>
+							</div>
 							
-							<h4>events attended</h4>
-							<span>Fusce scelerisque massa vitae</span>
-							<p>25 april 2013</p>
-							<span>Pellentesque bibendum ante</span>
-							<p>15 march 2013</p>
-							<span>Maecenas quis ipsum sed magna </span>
-							<p>25 april 2013</p>
+							<div class="misc_info_box">
+								<h4>Events Attended</h4>
+								<span>Fusce scelerisque massa vitae</span>
+								<p>25 april 2013</p>
+								<span>Pellentesque bibendum ante</span>
+								<p>15 march 2013</p>
+								<span>Maecenas quis ipsum sed magna </span>
+								<p>25 april 2013</p>
+							</div>
 							
-							<h4>latest comments</h4>
-							 <% @comments.each do |comment|  %>
-								 <span class="bg">
-								 	<%= comment.content %>
-								 </span>
-								 <p>
-								 	<%= comment.created_at.strftime("%b %d %Y - %l:%M %p") %>
-								 	<% if current_user?(@user) || current_user.admin?  %>
-			             				<%= link_to "Delete Comment", comment_path(comment), :method => :delete,  
-			                    				 data: { confirm: 'Are you sure?' }%>
-			               			 <% end %>
-			           			 </p>
-							<% end %>
-							<%= will_paginate @comments, :class => "f_nav1" %>
+							<div class="misc_info_box">
+							<h4>Latest Comments</h4>
+								 <% @comments.each do |comment|  %>
+								   
+								   	<% blogpost = Blogpost.find_by(:id => comment.blogpost_id) %>
+								   	
+								   <blog_title><%= link_to blogpost.title, blogpost %></blog_title>
+									 <span class="bg">
+									 	<%= comment.content %>
+									 </span>
+									 <p>
+									 	<%= comment.created_at.strftime("%b %d %Y %l:%M %p") %>
+									 	<% if current_user?(@user) || current_user.admin?  %>
+				             				<%= link_to "Delete", comment_path(comment), :method => :delete,  
+				                    				 data: { confirm: 'Are you sure?' }%>
+				            <% end %>
+				            
+				           </p>
+								<% end %>
+								<%= will_paginate @comments, :class => "f_nav1" %>
+							</div>
+						</div>
+						<div class="span1_of_4_info">
+							<div class="info_box">
+									<span>Education</span>
+									<p><%= @user.school %></p>
+							</div>
+							<div class="info_box">
+								<span>Employment</span>
+								<p>
+									<% if !@user.work_position.empty? %>
+									<%= @user.work_position %>,
+									<% end %> 
+									<%= @user.company %>
+								</p>
+							</div>
+							<div class="info_box">
+								<span>Future Goals</span>
+								<p> <%= @user.goal %> </p>
+							<!--<p>I want to be the very best</p>
+							<p>		Like no one ever was</p>
+							<p>		To catch them is my real test</p>
+							<p>		To train them is my cause</p>-->
+							</div>
 						</div>
 						<div class="span1_of_4">
-							<h4><font text-align: "center" >Resume</font></h4>
+							<div class="info_box">
+							<span><div style="text-align:center;">Resume</div></span>
+							</div>
 								<p>
+									<div id="user_resume">
 									<%= render "userprofile" %>
+									</div>
 								</p>
 							
 						</div>

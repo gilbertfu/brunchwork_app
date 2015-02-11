@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-before_action :signed_in_user, only: [:index, :show, :edit, :update, :destroy, :admin, :private_resume]
-before_action :correct_user,   only: [:edit, :update, :private_resume]
+before_action :signed_in_user, only: [:index, :show, :edit, :update, :destroy, :admin, :private_resume, :remove_resume, :remove_prof_pic]
+before_action :correct_user,   only: [:edit, :update, :private_resume, :remove_resume, :remove_prof_pic]
 before_action :admin_user,     only: [:destroy, :admin]
 respond_to :html, :js
 
@@ -18,7 +18,7 @@ respond_to :html, :js
     @user = User.new(user_params)
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to Brunchwork!"
+      flash[:success] = "Welcome to brunchwork!"
       redirect_to @user
     else
       render 'new'
@@ -44,8 +44,17 @@ respond_to :html, :js
                                    :image => params[:user][:image],
                                    :resume => params[:user][:resume],
                                    :password => params[:user][:old_password],
-                                   :password_confirmation => params[:user][:old_password])
-            flash[:success] = "Profile updated"
+                                   :password_confirmation => params[:user][:old_password],
+                                   :goal => params[:user][:goal])
+            if params[:user][:remove_image] == '1'
+                @user.remove_image!
+                @user.save
+            end
+            if params[:user][:remove_resume] == '1'
+                @user.remove_resume!
+                @user.save
+            end
+            flash[:success] = "Profile Updated"
             redirect_to @user
         else
             render 'edit'
@@ -53,6 +62,14 @@ respond_to :html, :js
       else
         #update all attributes
         if @user.update_attributes(user_params)
+          if params[:user][:remove_image] == '1'
+                @user.remove_image!
+                @user.save
+          end
+          if params[:user][:remove_resume] == '1'
+                @user.remove_resume!
+                @user.save
+          end
           flash[:success] = "Profile updated"
           redirect_to @user
         else
@@ -90,7 +107,11 @@ respond_to :html, :js
   end
   
   def destroy
-    User.find(params[:id]).destroy
+    @user = User.find(params[:id])
+    @user.remove_resume!
+    @user.remove_image!
+    @user.save
+    @user.destroy
    # flash[:success] = "User deleted."
     @users = User.reorder("name ASC").paginate(page: params[:page], :per_page => 10)
     #redirect_to users_url
@@ -114,22 +135,25 @@ respond_to :html, :js
   def private_resume
     @user = User.find(params[:id])
     @user.toggle!(:private_resume)
-    #if @user.private_resume?
-    #  @user.toggle!(:private_resume)
-    #  flash[:success] = "Resume Viewable to All Users"
-    #else
-    #  @user.toggle!(:private_resume)
-    #  flash[:success] = "Resume Hidden from All Users"
-    #end
-    #redirect_to @user
   end
+  
+  # def remove_prof_pic
+  #   @user = User.find(params[:id])
+  #   @user.delete :image
+  #   redirect_to @user
+  # end
+  
+  # def remove_resume
+  #   @user = User.find(params[:id])
+  #   @user.delete :resume
+  # end
   
   private
 
     def user_params
       params.require(:user).permit(:name, :email, :school, :company, 
                                    :work_position, :password,
-                                   :password_confirmation, :image, :resume)
+                                   :password_confirmation, :image, :resume, :remove_image, :remove_resume, :goal)
     end
 
   # Before filters

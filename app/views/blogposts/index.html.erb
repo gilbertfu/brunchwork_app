@@ -1,139 +1,46 @@
-
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-
-<!-- start header -->
-<!--------start-blog----------->
 <div class="blog">
-  <br><br>
 	<div class="banner" id="page_top">
-		<h2>Blog</h2>
+		<h2>Food for thought</h2>
 	</div>
-	<div class="main">
-		  	<div class="wrap">
-			 	<div class="single-top">
-				 <div class="wrapper_single">
-				    <% @blogposts.each do |blogpost| %>
-					  <div class="wrapper_top">
-						<div class="grid_1 alpha">
-							<div class="date">
-								<span>
-									<%= blogpost.created_at.strftime("%d") %>
-								</span>
-								<%= blogpost.created_at.strftime("%b") %> <%= blogpost.created_at.strftime("%Y") %>
-							</div>
-						</div>
-					 	<div class="content span_2_of_single">
-						   		<h5 class="blog_title"><%= link_to blogpost.title, blogpost, :method => :get %></h5>
-								<div class="content">
-									<div class="span-1-of-1">
-									  <% if !blogpost.photos.first.nil? %>
-      				        <%= image_tag( blogpost.photos.first.image_url, :size => "300x300", :class => "m_img")  %>
+	<div class="listings">
+		<div class="wrapper">
+			<ul class="properties_list">
+				<% @blogposts.each do |blogpost| %>
+				<li>
+					<a href=<%= blogpost_path(blogpost) %>>
+						<% if !blogpost.photos.first.nil? %>
+      				        <%= image_tag( blogpost.photos.first.image_url, :class => "property_img")  %>
       			        <% end %>
-									</div>
-									<div class="span-1-of-2">
-						 				  <%#= raw blogpost.content[0,blogpost.content.size/2] %>
-						 				  <%= raw blogpost.content%>
-						 				  <br>
-						 				  <%= link_to "Read More", blogpost, :method => :get %>
-						 			</div>
-						 			<div class="clear"> </div>
-								</div>	
-								<div class="links">
-									<h3 class="comments">By brunchwork</h3>
-									<h3 class="comments"><%= link_to pluralize(blogpost.comments.count, "comment"), blogpost, :method => :get %></h3>
-									<h3 class="comments"><%= blogpost.created_at.strftime("%b %d %Y")%></h3>
-									<div class="clear"> </div>
-								</div>
-						</div>
-						<div class="clear"> </div>
+
+					</a>
+					<div class="property_details">
+						<h1>
+							<%= link_to blogpost.title, blogpost, :method => :get %>
+						</h1>
+						<h2><%= blogpost.created_at.strftime("%d %b %Y") %> 
+							<span class="property_size">
+								( <%= link_to pluralize(blogpost.comments.count, "comment"), blogpost, :method => :get %> )
+							</span>
+						</h2>
 					</div>
-					<% end %>
+				</li>
+        <% end %>
+
+
+
+
+
+
+			</ul>
+			<%= will_paginate @blogposts, :class => "pages", inner_window: 1, outer_window: 0 %>
 		</div>
-		<!-- TODO: Expand Blogpost Index to include useful items -->
-		<!--<div class="rsidebar span_1_of_3">
-				<div class="search_box">
-					<form>
-					   <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"><input type="submit" value="">
-				    </form>
-			 	</div>
-               <div class="social_2">	
-               	<h4>Follow Us</h4>
-	           <ul>	
-				    <li class="facebook"><a href="#"><span> </span></a></li>
-				    <li class="twitter"><a href="#"><span> </span></a></li>	 	
-					<li class="google"><a href="#"><span> </span></a></li>
-			  </ul>
-		 	  </div>
-               <div class="email_box">
-					<form>
-						<div class="email">
-					  		 <input type="text" value="Enter Your e-mail" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Your e-mail';}">
-					  	</div>
-					  	 <div class="button">
-						   	 <span><input type="submit" value="Subscribe"></span>
-						</div>
-				    </form>
-			 	</div>
-			 	<div class="Categories">
-			 		<h4>Categories</h4>
-				 	<ul class="sidebar">
-			           	<div class="hover"><li><a href="#">Lorem Ipsum is simply dummy</a></li></div>
-			            <div class="hover"><li><a href="#">Lorem Ipsum is simply dummy</a></li></div>
-			            <div class="hover"><li><a href="#">Lorem Ipsum is simply dummy</a></li></div>
-			            <div class="hover"><li><a href="#">Lorem Ipsum is simply dummy</a></li></div>
-			            <div class="hover"> <li><a href="#">Lorem Ipsum is simply dummy</a></li></div>
-			            <div class="hover"><li><a href="#">Lorem Ipsum is simply dummy</a></li></div>
-			          </ul>
-		        </div>
-		        <div class="popularpost">
-		        	<h4>Popular Post</h4>
-		        	<div class="image">
-		        		<a href="#"><img src="web/images/sb5.jpg"/></a>
-		        	</div>
-		        	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-		        	<div class="link_1">
-		        		<p><a href="#">Sep 26,2013 </a></p>
-		        		<a href="#" class="arrow_btn right">Read More</a>
-		        		<div class="clear"> </div>
-		        	</div>
-		        </div>
-		        <div class="recentpost">
-			 		<h4>Recent Post</h4>
-				 	<ul class="sidebar_1">
-			           	<li><a href="#">Lorem Ipsum is simply dummy</a></li>
-			            <li><a href="#">Lorem Ipsum is simply dummy</a></li>
-			           	<li><a href="#">Lorem Ipsum is simply dummy</a></li>
-			            <li><a href="#">Lorem Ipsum is simply dummy</a></li>
-			            <li><a href="#">Lorem Ipsum is simply dummy</a></li>
-			            <li><a href="#">Lorem Ipsum is simply dummy</a></li>
-			          </ul>
-		        </div>
-		        <div class="tags">
-		        	<h4>Tags</h4>
-		        	<ul>
-		        		<li><a href="#">design</a></li>
-		        		<li><a href="#">development</a></li>
-		        		<li><a href="#">multipurpose</a></li>
-		        		<li><a href="#">creative</a></li>
-		        		<li><a href="#">seo</a></li>
-		        		<li><a href="#">adverticement</a></li>
-		        		<li><a href="#">life</a></li>
-		        		<div class="clear"> </div>
-		        	</ul>
-		        </div>
-		</div>-->
+	</div>	
 		
 		<div class="clear"> </div>
 	</div>	
-	<%= will_paginate @blogposts, :class => "pages" %>
-<!----//End-content---->
+<!----//End-content---
 	</div>
-</div>	
-</div>	
+</div>
+	<%= will_paginate @blogposts, :class => "pages", inner_window: 1, outer_window: 0 %>
+</div>	-->
 <!--------//end-blog----------->
-

@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class="blog">
   <br><br>
 	<div class="banner" id='page_top'>
-		<h2>Blog</h2>
+		<h2>Food for thought</h2>
 	</div>
 	<div class="main">
 		  	<div class="wrap">
@@ -18,20 +18,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="grid_1 alpha">
 							<div class="date">
 								<span>
-									22
+									<%= @blogpost.created_at.strftime("%d") %>
 								</span>
-								Sep 2014
+								<%= @blogpost.created_at.strftime("%b") %> <%= @blogpost.created_at.strftime("%Y") %>
 							</div>
 						</div>
-					 	<div class="content span_2_of_single">
-						   		<h1 ><%= @blogpost.title %></h1>
+						<h1> <font text-align="right"><%= @blogpost.title %></font></h1>
 						   		<br>
+					 	<div class="content span_2_of_single">
+						   		
 
 									<div class="clear"> </div>
 								<div class="content">
 									<div class="span-1-of-1">
 										<% if !@blogpost.photos.first.nil? %>
-      				        <%= image_tag( @blogpost.photos.first.image_url, :size => "300x300", :class => "m_img")  %>
+      				        <%= image_tag( @blogpost.photos.first.image_url, :class => "m_img")  %>
       			        <% end %>
 									</div>
 									<div class="span-1-of-2">
@@ -47,6 +48,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</div>
 						        <div class="comments">
 						        	<h4><%= pluralize(@blogpost.comments.count, "comment") %></h4>
+						        	
+						        	<p>
+						        		<% if current_user.admin? %>
+						        			<%= link_to "Edit Post", edit_blogpost_path(@blogpost)%> 
+						        			<%= link_to "Delete Post", @blogpost, :method => :delete,  
+                                 data: { confirm: 'Are you sure?' }%>
+						        		<% end %>
+						        	</p>
 						        	<% @comments.each do |comment| %>
 						        	<div class="c_grid">
 						        		<div class="person_1">
@@ -80,7 +89,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="field">
                       <%= f.text_area :content, placeholder: "Compose comment..." %>
                     </div>
-                    <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+                    <%= f.submit "Comment", class: "btn btn-large btn-primary" %>
                   <% end %>
 							  </div>
 					</div>

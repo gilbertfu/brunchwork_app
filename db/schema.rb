@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150111223005) do
+ActiveRecord::Schema.define(version: 20150207082156) do
 
   create_table "blogposts", force: true do |t|
     t.string   "content"
@@ -81,6 +81,8 @@ ActiveRecord::Schema.define(version: 20150111223005) do
     t.boolean  "admin"
     t.string   "resume"
     t.boolean  "private_resume"
+    t.string   "goal"
+    t.string   "eventbrite_oath"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
