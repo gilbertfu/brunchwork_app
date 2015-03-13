@@ -1,4 +1,4 @@
-$(".events").ready(function() {
+/*$(".events").ready(function() {
   function displayEvents(data) {
     $('#current_events').html(data);
   }
@@ -7,4 +7,4 @@ $(".events").ready(function() {
             data: {},
             success: displayEvents(data)
   })
-}
+}*/

@@ -1,4 +1,4 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
   function getQueryVariable(variable)
   {
     var query = window.location.search.substring(1);
@@ -11,4 +11,4 @@ $(document).ready(function() {
   }
   
   getQueryVariable("access_token")  
-});
+});*/

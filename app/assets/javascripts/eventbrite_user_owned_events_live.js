@@ -1,4 +1,4 @@
-$(".events").ready(function() {
+/*$(".events").ready(function() {
   //url making request to
   var eventbriteAPI = "https://www.eventbriteapi.com/v3/users/me/owned_events/?token=TFRPXVUYU6YDUM2FL3VY";
   //optional, data query string to send additional info
@@ -109,7 +109,7 @@ $(".events").ready(function() {
     });
     $('#old_events').html(eventHTML);
   }
-  /* why is this here */
+  
  // $.getJSON(eventbriteAPI, query, displayEvents);
   
   $('button').click(function() {
@@ -123,3 +123,4 @@ $(".events").ready(function() {
     $.getJSON(eventbriteAPI, query2, displayPastEvents);
   });
 });
+*/

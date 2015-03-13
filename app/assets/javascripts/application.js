@@ -17,4 +17,4 @@
 //= require ckeditor/init
 //= require turbolinks
 //= require jquery-readyselector
-//= require_tree ./common
+//= require_tree .

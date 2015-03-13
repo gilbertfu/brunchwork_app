@@ -1,5 +1,5 @@
-$(document).ready(function() {
-  var eventbriteAPI = "https://www.eventbriteapi.com/v3/users/me/owned_events/?status=all&token=4DTKSSWTRE2S2JIUDMG3";
+/*$(document).ready(function() {
+  var eventbriteAPI = "https://www.eventbriteapi.com/v3/users/me/owned_events/?status=all&token=";
   var query = {
   };
   function displayLogos(data) {
@@ -15,3 +15,4 @@ $(document).ready(function() {
   }
   $.getJSON(eventbriteAPI, query, displayLogos);
 });
+*/

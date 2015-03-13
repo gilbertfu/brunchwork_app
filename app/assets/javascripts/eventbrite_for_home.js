@@ -1,4 +1,4 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
   //url making request to
   var eventbriteAPI = "https://www.eventbriteapi.com/v3/users/me/owned_events/?token=TFRPXVUYU6YDUM2FL3VY";
   //optional, data query string to send additional info
