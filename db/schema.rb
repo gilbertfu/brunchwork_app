@@ -90,6 +90,9 @@ ActiveRecord::Schema.define(version: 20150308033449) do
   create_table "users", force: true do |t|
     t.text     "name"
     t.text     "email"
+    t.text     "school"
+    t.text     "work_position"
+    t.text     "company"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "password_digest"
