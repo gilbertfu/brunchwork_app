@@ -14,16 +14,16 @@
 ActiveRecord::Schema.define(version: 20150308033449) do
 
   create_table "blogposts", force: true do |t|
-    t.string   "content"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "title"
+    t.text     "title"
   end
 
   add_index "blogposts", ["created_at"], name: "index_blogposts_on_created_at"
 
   create_table "comments", force: true do |t|
-    t.string   "content"
+    t.text     "content"
     t.integer  "blogpost_id"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(version: 20150308033449) do
   end
 
   create_table "educations", force: true do |t|
-    t.string   "school"
-    t.string   "degree"
-    t.string   "major"
+    t.text     "school"
+    t.text     "degree"
+    t.text     "major"
     t.date     "grad_year"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -41,17 +41,17 @@ ActiveRecord::Schema.define(version: 20150308033449) do
   end
 
   create_table "emails", force: true do |t|
-    t.string   "email"
+    t.text     "email"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.string   "unsubscribe_hash"
+    t.text     "unsubscribe_hash"
   end
 
   add_index "emails", ["email"], name: "index_emails_on_email", unique: true
 
   create_table "employments", force: true do |t|
-    t.string   "company"
-    t.string   "title"
+    t.text     "company"
+    t.text     "title"
     t.date     "start_date"
     t.date     "end_date"
     t.datetime "created_at"
@@ -60,16 +60,16 @@ ActiveRecord::Schema.define(version: 20150308033449) do
   end
 
   create_table "events", force: true do |t|
-    t.string   "title"
-    t.string   "about"
-    t.string   "event_type"
-    t.string   "location"
-    t.string   "url"
-    t.string   "image"
+    t.text     "title"
+    t.text     "about"
+    t.text     "event_type"
+    t.text     "location"
+    t.text     "url"
+    t.text     "image"
     t.integer  "attendees"
     t.integer  "max_attendees"
     t.datetime "date_time"
-    t.string   "status"
+    t.text     "status"
     t.integer  "event_id",      limit: 8
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20150308033449) do
   add_index "events", ["date_time"], name: "index_events_on_date_time"
 
   create_table "photos", force: true do |t|
-    t.string   "image"
+    t.text     "image"
     t.integer  "imageable_id"
     t.string   "imageable_type"
     t.datetime "created_at"
@@ -88,27 +88,24 @@ ActiveRecord::Schema.define(version: 20150308033449) do
   add_index "photos", ["imageable_id", "imageable_type"], name: "index_photos_on_imageable_id_and_imageable_type"
 
   create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "school"
-    t.string   "work_position"
-    t.string   "company"
+    t.text     "name"
+    t.text     "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_digest"
-    t.string   "remember_token"
-    t.string   "image"
+    t.text     "password_digest"
+    t.text     "remember_token"
+    t.text     "image"
     t.boolean  "admin"
-    t.string   "resume"
+    t.text     "resume"
     t.boolean  "private_resume"
-    t.string   "goal"
-    t.string   "eventbrite_oath"
-    t.string   "activation_digest"
+    t.text     "goal"
+    t.text     "eventbrite_oath"
+    t.text     "activation_digest"
     t.boolean  "activated",         default: false
     t.datetime "activated_at"
-    t.string   "activation_token"
-    t.string   "reset_digest"
-    t.string   "reset_token"
+    t.text     "activation_token"
+    t.text     "reset_digest"
+    t.text     "reset_token"
     t.datetime "reset_sent_at"
   end
 

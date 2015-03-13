@@ -1,5 +1,5 @@
 class AddEventbriteOathToUsers < ActiveRecord::Migration
   def change
-    add_column :users, :eventbrite_oath, :string
+    add_column :users, :eventbrite_oath, :text
   end
 end
