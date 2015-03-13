@@ -70,21 +70,21 @@ respond_to :html, :js
                        :password_confirmation => "password")
     #filter on user names
     if !params[:user].nil? && !params[:user][:name].empty?
-     @filtered = @filtered.where("name LIKE ?", "%#{params[:user][:name]}%")
+     @filtered = @filtered.where("name ILIKE ?", "%#{params[:user][:name]}%")
     end
     
     if !params[:user].nil? && !params[:user][:school].empty?
-      @filtered = @filtered.joins(:educations).where("educations.school LIKE '%#{params[:user][:school]}%'")
+      @filtered = @filtered.joins(:educations).where("educations.school ILIKE '%#{params[:user][:school]}%'")
      #@filtered = @filtered.where("school LIKE ?", "%#{params[:user][:school]}%")
     end
     
     if !params[:user].nil? && !params[:user][:company].empty?
-      @filtered = @filtered.joins(:employments).where("employments.company LIKE '%#{params[:user][:company]}%'")
+      @filtered = @filtered.joins(:employments).where("employments.company ILIKE '%#{params[:user][:company]}%'")
      #@filtered = @filtered.where("company LIKE ?", "%#{params[:user][:company]}%")
     end
     
     if !params[:user].nil? && !params[:user][:work_position].empty?
-      @filtered = @filtered.joins(:employments).where("employments.title LIKE '%#{params[:user][:work_position]}%'")
+      @filtered = @filtered.joins(:employments).where("employments.title ILIKE '%#{params[:user][:work_position]}%'")
      #@filtered = @filtered.where("work_position LIKE ?", "%#{params[:user][:work_position]}%")
     end
     #@filtered = @filtered.uniq
