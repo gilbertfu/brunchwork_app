@@ -35,5 +35,7 @@ module BrunchworkApp
     config.action_mailer.default :charset => "utf-8"
     eb_client = EventbriteClient.new({ access_token: 'GZW7DOQMUBNPMNJRTR54'})
     #config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    config.assets.enabled = true
+    config.serve_static_assets = true
   end
 end
