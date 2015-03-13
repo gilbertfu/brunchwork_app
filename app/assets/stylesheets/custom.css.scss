@@ -471,7 +471,17 @@ input {
 }
 
 .home_slide{
-  //background-attachment: fixed;
+  background-attachment: fixed;
+  width: 100%;
+  //min-width: 1700px;
+  height: 100%;
+  position: relative;
+  //padding: 1px;
+  background-repeat: no-repeat;
+}
+
+.event_slide{
+    //background-attachment: fixed;
   width: 100%;
   //min-width: 1700px;
   height: 100%;
