@@ -1,7 +1,7 @@
 <% if !@user.resume_url.nil? && !@user.resume_url.empty? %>
      <!-- If viewing own profile or resume not set to private, show resume -->
 	 <% if current_user?(@user) || !@user.private_resume?  %>
-		 	<iframe src="https://docs.google.com/gview?url=<%= request.host_with_port + @user.resume_url.to_s %>&embedded=true" 
+		 	<iframe src="https://docs.google.com/gview?url=<%= @user.resume_url.to_s %>&embedded=true" 
 		 	      style="width:250px; height:315px" frameborder="0"></iframe>
 	 <% end %>
 	 <% if current_user?(@user) %>
