@@ -1,6 +1,6 @@
 <% provide(:title, 'Sign up') %>
 
-<div class='slide' id='slide1'>
+<div class='home_slide' id='slide1' data-stellar-background-ratio='0.5'>
   <div class="container">
     <div class="col-md-6 transparency center">
         
@@ -16,14 +16,14 @@
       <%= f.label :email, "Email*" %>
       <%= f.text_field :email %>
       
-      <%= f.label :school %>
-      <%= f.text_field :school %>
+      <%#= f.label :school %>
+      <%#= f.text_field :school %>
       
-      <%= f.label :company %>
-      <%= f.text_field :company %>
+      <%#= f.label :company %>
+      <%#= f.text_field :company %>
       
-      <%= f.label :work_position, "Work Position" %>
-      <%= f.text_field :work_position %>
+      <%#= f.label :work_position, "Work Position" %>
+      <%#= f.text_field :work_position %>
       
       <%#= f.label :image, "Profile Picture" %>
       <%#= f.file_field :image %>
@@ -31,7 +31,7 @@
       <%= f.label :password, "Password*" %>
       <%= f.password_field :password %>
 
-      <%= f.label :password_confirmation, "Confirmation*" %>
+      <%= f.label :password_confirmation, "Password Confirmation*" %>
       <%= f.password_field :password_confirmation %>
 
       <div class="center_text"><%= f.submit "Create my account", class: "btn btn-large btn-primary center" %></div>

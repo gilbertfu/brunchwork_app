@@ -10,7 +10,7 @@ class BlogpostsController < ApplicationController
     @blogpost = Blogpost.find(params[:id])
     @photos = @blogpost.photos.all
     @comments = @blogpost.comments.all
-    @comment = @comment = Comment.new
+    @comment = Comment.new
   end
   
   def new

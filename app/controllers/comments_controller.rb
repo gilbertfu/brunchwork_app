@@ -12,16 +12,16 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @blogpost
     else
-      flash.now[:danger] = "error"
+      flash.now[:danger] = "Error, Comment must have content and less than 500 characters"
+      flash.keep(:danger)
+      redirect_to @blogpost
     end
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     @user = User.find_by(:id => @comment.user_id)
-    puts "here 2"
     @comment.destroy
-    puts "here 3"
     redirect_to @user, status: 303
   end
   
@@ -34,9 +34,6 @@ class CommentsController < ApplicationController
     def comment_correct_user
       #if not admin user or user who created the post
       @comment = current_user.comments.find_by(id: params[:id])
-      puts "here"
       redirect_to root_url if @comment.nil?
-      puts "here 1"
-      
     end
 end

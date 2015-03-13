@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207082156) do
+ActiveRecord::Schema.define(version: 20150308033449) do
 
   create_table "blogposts", force: true do |t|
     t.string   "content"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20150207082156) do
     t.datetime "updated_at"
   end
 
+  create_table "educations", force: true do |t|
+    t.string   "school"
+    t.string   "degree"
+    t.string   "major"
+    t.date     "grad_year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
   create_table "emails", force: true do |t|
     t.string   "email"
     t.datetime "created_at",       null: false
@@ -39,23 +49,33 @@ ActiveRecord::Schema.define(version: 20150207082156) do
 
   add_index "emails", ["email"], name: "index_emails_on_email", unique: true
 
+  create_table "employments", force: true do |t|
+    t.string   "company"
+    t.string   "title"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
   create_table "events", force: true do |t|
     t.string   "title"
     t.string   "about"
     t.string   "event_type"
     t.string   "location"
+    t.string   "url"
+    t.string   "image"
+    t.integer  "attendees"
+    t.integer  "max_attendees"
     t.datetime "date_time"
+    t.string   "status"
+    t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image"
   end
 
   add_index "events", ["date_time"], name: "index_events_on_date_time"
-
-  create_table "events_users", id: false, force: true do |t|
-    t.integer "user_id"
-    t.integer "event_id"
-  end
 
   create_table "photos", force: true do |t|
     t.string   "image"
@@ -83,6 +103,13 @@ ActiveRecord::Schema.define(version: 20150207082156) do
     t.boolean  "private_resume"
     t.string   "goal"
     t.string   "eventbrite_oath"
+    t.string   "activation_digest"
+    t.boolean  "activated",         default: false
+    t.datetime "activated_at"
+    t.string   "activation_token"
+    t.string   "reset_digest"
+    t.string   "reset_token"
+    t.datetime "reset_sent_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

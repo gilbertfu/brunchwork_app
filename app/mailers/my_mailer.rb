@@ -16,4 +16,19 @@ class MyMailer < ActionMailer::Base
          from: 'Brunchwork',
          subject: subject_line)
   end
+  
+  def account_activation(user)
+    @user = user
+    mail(to: @user.email,
+         from: 'Brunchwork',
+         subject: 'Activate Account')
+  end
+  
+  def password_reset(user)
+    @user = user
+    mail(to: @user.email,
+         from: 'Brunchwork',
+         subject: 'Reset Password')
+  end
+  
 end

@@ -43,11 +43,12 @@ module SessionsHelper
   def signed_in_user
     unless signed_in?
       store_location
-      redirect_to signin_url, notice: "Please sign in."
+      redirect_to signin_url
     end
   end
   
   def admin_user
     redirect_to(root_url) unless current_user.nil? || current_user.admin?
   end
+  
 end

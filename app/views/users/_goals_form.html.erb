@@ -1,0 +1,7 @@
+<%= form_for @user, url: submit_edit_goals_user_path(@user), html: {method: "put"}, :remote => true do |f| %>
+
+  <%= f.label :goal, "Future Goals" %>
+  <%= f.text_area :goal, :style => "width:300px;", :rows => 10, :placeholder => "Future Goals..." %>
+  
+  <%= f.submit "Edit", class: "btn btn-large btn-primary"%>
+<% end %>

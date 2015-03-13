@@ -19,6 +19,11 @@
             <%= link_to "Make Admin", admin_user_path(user), :method => :put,  
                      data: { confirm: 'Are you sure?' }, remote: true %>
         <% end %>
+         | <% if user.activated? %>
+            Activated
+            <% else %>
+            Not Activated
+            <% end %>
       <% end %>
     </li>
   <% end %>

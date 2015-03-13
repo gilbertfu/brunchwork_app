@@ -14,7 +14,8 @@
   <div class="send-emails">
     <%= f.label :title %>
     <%= f.text_field :title, placeholder: "Blogpost Title..." %>
-    <%= f.cktext_area :content, :style => "width:500px;", :rows => 20, placeholder: "Blogpost..." %>
+    (Must have content or will throw error)
+    <%= f.cktext_area :content, :style => "width:500px;", :rows => 20, placeholder: "Must have content or will throw error..." %>
     <%#= f.input :content %>
     <%#= f.text_area :content, :class => "textarea", :placeholder => "Blogpost...", :style => "width: 810px; height: 200px" %>
     <%= f.fields_for :photos do |p| %>

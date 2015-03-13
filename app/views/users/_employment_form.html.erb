@@ -1,0 +1,14 @@
+<%= form_for @employment, :remote => true do |f| %>
+  <%= f.label :company, "Company*" %>
+  <%= f.text_field :company %>
+  
+  <%= f.label :title, "Position*" %>
+  <%= f.text_field :title %>
+  
+  <%= f.label :start_date, "Start Year" %>
+  <%= f.date_select :start_date, :include_blank => true, :start_year => Time.now.year, :end_year => Time.now.year - 50, :discard_month => true %>
+  <%= f.label :end_date, "End Year" %>
+  <%= f.date_select :end_date, :include_blank => true, :start_year => Time.now.year, :end_year => Time.now.year - 50, :discard_month => true %>
+  
+  <%= f.submit "Add", class: "btn btn-large btn-primary" %>
+<% end %>

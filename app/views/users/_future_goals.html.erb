@@ -1,0 +1,9 @@
+<span>Future Goals</span>
+	<p>
+		<%= @user.goal %>
+	</p>
+<% if current_user?(@user) %>
+<div id="edit_goals">
+	<%= link_to "Edit Goals", edit_goals_user_path(@user), :method => :put, :remote => true %>
+</div>
+<% end %>

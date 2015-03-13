@@ -1,8 +1,0 @@
-<% provide(:title, 'Event Page') %>
-
-
-<h1><%= @event.title %></h1>
-
-<% @event.photos.each do |p| %>
-  <%= image_tag p.image_url, :size => "150x150" %>
-<% end %>

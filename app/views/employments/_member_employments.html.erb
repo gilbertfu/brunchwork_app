@@ -1,0 +1,37 @@
+<span>Employment</span>
+	<% @user.employments.each do |employment| %>
+		<div id="employment">
+		<p>
+			<%= employment.company + ','%>
+			<% if !employment.start_date.nil? && !employment.start_date.blank?%>
+		    <%= employment.start_date.strftime("%Y") %>
+		  <% end %>
+		  <!-- if start date included as well as end date, need to inlcude '-' -->
+		  <% if !employment.end_date.nil? && !employment.end_date.blank?%>
+		   <% if !employment.start_date.nil? && !employment.start_date.blank?%>
+		    	<%= employment.end_date.strftime("- %Y") %>
+		   <% else %>
+		    	<%= employment.end_date.strftime("%Y") %>
+		   <% end %>
+		  <% end %>
+		  <!-- if dates were include make the title on a separate line -->
+		  <% if (!employment.start_date.nil? && !employment.start_date.blank?) ||
+		        (!employment.end_date.nil? && !employment.end_date.blank?)%>
+		  <br>
+		  <% end %>
+		  <!-- employee title -->
+			<% if !employment.title.empty? %>
+			  <%= employment.title %>
+			<% end %>
+
+			<% if current_user?(@user)  %>
+			<br> <%= link_to "Delete", employment, :method => :delete, :remote => true,data: { confirm: 'Are you sure?' } %>
+			<% end %>
+		</p>
+		</div>
+	<% end %>
+<% if current_user?(@user) %>
+<div id="add_employment">
+		<%= link_to "Add Employment", add_employment_user_path(@user), :method => :put, :remote => true %>
+</div>
+<% end %>

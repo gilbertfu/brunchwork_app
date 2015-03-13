@@ -1,0 +1,27 @@
+<span>Education</span>
+<% @user.educations.each do |education| %>
+	<div id="education">
+	<p>
+		<% if !education.grad_year.nil? && !education.grad_year.blank?%>
+		  <%= education.school + ", "%>
+		  <%= education.grad_year.strftime("%Y") %>
+		<% else %>
+		  <%= education.school %>
+		<% end %>
+		<% if !education.major.empty? %>
+		  <br><i> <%= education.major + ', '%> </i>
+		<% end %>
+		<% if !education.degree.empty? %>
+		  <i><%= education.degree %></i>
+		<% end %>
+		<% if current_user?(@user)  %>
+		<br> <%= link_to "Delete", education, :method => :delete, :remote => true, data: { confirm: 'Are you sure?' } %>
+		<% end %>
+	</p>
+	</div>
+<% end %>
+<% if current_user?(@user) %>
+<div id="add_education">
+	<%= link_to "Add Education", add_education_user_path(@user), :method => :put, :remote => true %>
+</div>
+<% end %>

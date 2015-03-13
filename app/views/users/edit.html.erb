@@ -12,69 +12,61 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- start slider -->
 <div class="slider_bg">
 <div class="wrap">
-	<div class="slider">
-		<h2><%= @user.name %></h2>
-	</div>
+	<!--<div class="slider">
+	</div>-->
 </div>
 </div>
 <!-- start main -->
 <div class="main_bg">
 <div class="wrap">
 	<div class="main_profile">
+		<br><br>
+		<h2>Edit Profile</h2>
 		<div class="content_profile">
 		<!-- start details -->
 			<div class="details">
 				<div class="span_of_4">
+					<div class="span1_of_4">
+						<br>
+						</div>
 						<div class="span1_of_4">
 						  <h4>Update your profile</h4>
 							<div class="det_pic">
-							  
-
-                
 							  <%= image_tag @user.image_url(:thumb).to_s %>
 							</div>
 				
 							<%= form_for @user, :html => { :multipart => true } do |f| %>				  
 				      <%= render 'shared/error_messages_users' %>
 				      <% if current_user?(@user) && @user.image_url.to_s != "/assets/default_images/default_hair.jpg"%>
-				  	     <%= f.label :remove_image, "Remove Picture", {class: "checkbox inline"} %>
-				            <%= f.check_box :remove_image %>
+				  	     <%#= f.label :remove_image, "Remove Picture" %>
+				            <%#= f.check_box :remove_image, {class: "checkbox-inline"} %>
+				            <%= link_to "Remove Picture", remove_prof_pic_user_path(@user),
+                              :method => :put, data: { confirm: "Are you sure?" } %>
+                              <br><br>
 				      <% end %>                           
-				      <%= f.label :name, "Full Name*" %>
+				      <%= f.label :name, "Full Name" %>
 				      <%= f.text_field :name %>
 				
-				      <%= f.label :email, "Email*" %>
+				      <%= f.label :email, "Email" %>
 				      <%= f.text_field :email %>
-				      
-				      <%= f.label :school %>
-				      <%= f.text_field :school %>
-				      
-				      <%= f.label :company %>
-				      <%= f.text_field :company %>
-				      
-				      <%= f.label :work_position, "Work Position" %>
-				      <%= f.text_field :work_position %>
 				      
 				      <%= f.label :image, "Profile Picture" %>
 				      <%= f.file_field :image %>
 				      
-				      <%= f.label :resume, "Resume" %>
+				      <%= f.label :resume, "Resume (PDF only)" %>
 				      <%= f.file_field :resume %>
-				      
-				      <%= f.label :goal, "Future Goals" %>
-				      <%= f.text_field :goal %>
 				
-				      <%= f.label :old_password, "Old Password*" %>
+				      <%= f.label :old_password, "Confirm Password*" %>
 				      <%= f.password_field :old_password %>
 				
-				      <%= f.label :password, "New Password" %>
-				      <%= f.password_field :password %>
+				      <%#= f.label :password, "New Password" %>
+				      <%#= f.password_field :password %>
 				      
-				      <%= f.label :password_confirmation, "Confirm Password" %>
-				      <%= f.password_field :password_confirmation %>
+				      <%#= f.label :password_confirmation, "Confirm Password" %>
+				      <%#= f.password_field :password_confirmation %>
 				
 				      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
-    
+				      <p>(* mandatory field)</p>
 						</div>
 						<div class="span1_of_4">
 							<h4>
@@ -84,10 +76,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							</h4>
 				     			 <% if !current_user?(@user) || @user.resume_url.nil?  || @user.resume_url.empty?%>
 				     			 <% else %>
-							    <%= f.label :remove_resume, "Remove Resume", {class: "checkbox inline"} %>
-       						    <%= f.check_box :remove_resume %>
-             				 	        <% end %>
-					<% end %>
+							    <%#= f.label :remove_resume, "Remove Resume" %>
+       						    <%#= f.check_box :remove_resume, {:class => "checkbox_container"}%>
+       						    	<%= link_to "Remove Resume", remove_resume_user_path(@user),
+                              :method => :put, data: { confirm: "Are you sure?" } %>
+
+             			<% end %>
+						<% end %>
 							<p>
 								<%= render "userprofile" %>
 							</p>

@@ -1,0 +1,15 @@
+<%= form_for @education, :remote => true do |f| %>
+  <%= f.label :school, "School*" %>
+  <%= f.text_field :school %>
+  
+  <%= f.label :degree, "Degree*" %>
+  <%= f.text_field :degree %>
+  
+  <%= f.label :major, "Field of Study" %>
+  <%= f.text_field :major %>
+  
+  <%= f.label :grad_year, "Graduated Year" %>
+  <%= f.date_select :grad_year, :include_blank => true, :start_year => Time.now.year+5, :end_year => Time.now.year - 50, :discard_month => true %>
+  
+  <%= f.submit "Add", class: "btn btn-large btn-primary"%>
+<% end %>

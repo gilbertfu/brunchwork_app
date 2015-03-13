@@ -7,6 +7,8 @@ FactoryGirl.define do
     work_position "Engineer"
     password "foobar"
     password_confirmation "foobar"
+    activated true
+    activated_at Time.zone.now
     
     factory :admin do
       admin true

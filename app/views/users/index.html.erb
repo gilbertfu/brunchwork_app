@@ -2,65 +2,58 @@
 
 <!-- start slider -->
 <div class="slider_bg" >
-<div class="wrap">
-	<div class="slider">
-		
+	<div class="wrap">
+		<!--<div class="slider">
+			
+		</div>-->
 	</div>
-</div>
 </div>
 <!-- start main -->
 <div class="main_bg">
-<div class="wrap">
-	<div class="main_profile">
-		<div class="content_profile">
-
-<div class="blog">
- <h2>Members</h2>
-	<div class="main">
-		  	<div class="wrap">
-			 	<div class="single-top">
-				 <div class="wrapper_single" id="userslist">
-				    <%= render 'users' %>
-				    
+	<div class="wrap">
+		<div class="main_profile">
+			<div class="content_profile">
+	
+				<div class="blog">
+				 <h2>Members</h2>
+					<div class="main">
+						  	<div class="wrap">
+							 	<div class="single-top">
+								 <div class="wrapp_single_users" id="userslist">
+								    <%= render 'users' %>
+								    
+								 </div>
+								<!-- TODO: Expand Blogpost Index to include useful items -->
+								<div class="rsidebar span_1_of_3">
+								 	<div class="Categories">
+								 		<h4>Search Members</h4>
+									 	<ul class="sidebar">
+								           	 <%= form_for(@search, :url => { :action => "index" }, :html => {:method => :get} ) do |f| %>
+										     <%= f.label :name %>
+										      <%= f.text_field :name %>
+										      
+										      <%= f.label :school %>
+										      <%= f.text_field :school %>
+										      
+										      <%= f.label :company %>
+										      <%= f.text_field :company %>
+										      
+										      <%= f.label :work_position, "Work Position" %>
+										      <%= f.text_field :work_position %>
+										      
+										      <%= f.submit "Filter Members", class: "btn btn-large btn-primary" %>
+										    <% end %>
+								          </ul>
+							        </div>
+								</div>
+								<div class="clear"> </div>
+								<%= will_paginate @users, :class => "pages", inner_window: 1, outer_window: 0 %>
+								</div>	
+						<!----//End-content---->
+							</div>
+					</div>	
+				</div>
+			</div>
 		</div>
-		<!-- TODO: Expand Blogpost Index to include useful items -->
-		<div class="rsidebar span_1_of_3">
-				
-               
-               
-			 	<div class="Categories">
-			 		<h4>Search Members</h4>
-				 	<ul class="sidebar">
-			           	 <%= form_for(@search, :url => { :action => "index" }, :html => {:method => :get} ) do |f| %>
-     <%= f.label :name %>
-      <%= f.text_field :name %>
-      
-      <%= f.label :school %>
-      <%= f.text_field :school %>
-      
-      <%= f.label :company %>
-      <%= f.text_field :company %>
-      
-      <%= f.label :work_position, "Work Position" %>
-      <%= f.text_field :work_position %>
-      
-      <%= f.submit "Filter Members", class: "btn btn-large btn-primary" %>
-    <% end %>
-			          </ul>
-		        </div>
-
-		 
-		</div>
-		
-		<div class="clear"> </div>
-	</div>	
-
-<!----//End-content---->
 	</div>
-</div>	
-	<%= will_paginate @users, :class => "pages", inner_window: 1, outer_window: 0 %>
-</div>	
-</div>	
-</div>	
-</div>
 </div>	

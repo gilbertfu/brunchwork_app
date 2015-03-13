@@ -1,5 +1,5 @@
-<%#= javascript_include_tag('eventbrite_for_home.js') %>
-<div class='home_slide' id='slide1' data-slide='1' data-stellar-background-ratio='0.5'>
+
+<div class='home_slide' id='slide1' data-stellar-background-ratio='0.5'>
     <div id='page_top'></div>
   <div class="container">
     <div class="col-md-6 transparency center">
@@ -7,21 +7,25 @@
       <h2> 
          Introducing the power brunch</h2>
          <h3 text-align="left">
-         We are young, successful and hungry for the next opportunity. And so are you. 
-         <br> <br> You shouldn't have to settle for a job you don't love. 
-         It should be easy to explore your options, and build skills and connections. As easy as going to brunch with friends.
-				<br>
-         <br>Are you ready?
+         We are young, successful and hungry for the next opportunity.
+
       </h3> 
-          <%= form_for(@email) do |f| %>
-          <%= render 'shared/error_messages' %>
-          <%= f.text_field :email, :placeholder => "Enter your email" %> 
-          <div class="center_text"><%= f.submit "Join", class: "btn btn-large btn-warning center"%> </div>
+          <%#= form_for(@email) do |f| %>
+          <%#= render 'shared/error_messages' %>
+          <%#= f.text_field :email, :placeholder => "Enter your email for an invite code" %> 
+          <% if !signed_in?%>
+          	<div class="center_text"><%= link_to "Sign up", signup_path, class: "btn btn-large btn-warning center"%> </div>
+          	<br>
+          <% else %>
+          	<h3>Welcome back, <%= current_user.name %></h3>
           <% end %>
+          <%# end %>
+          
+          <div class="center_text"><%= link_to "Check out our next event", "http://www.eventbrite.com/o/brunchwork-7806405987?s=32643048", :target => '_blank' %></div>
     </div>
   </div>
 </div>
-<div id="slide2" data-slide='2' data-stellar-background-ratio='0.5'>
+<div id="slide2" data-stellar-background-ratio='0.5'>
 		<!----start-feartures----->
 		<div id="fea" class="features">
 		    <h1>How It Works</h1>
@@ -58,77 +62,22 @@
 			</div>
 		</div>
 		<!----//End-feartures----->
-    <!--<div class="container">
-      <div class="col-md-8 center transparency_events">
-          <h2> Upcoming Events</h2>
-             <h3>
-               <ul>
-                 <li>brunch<font color='#808080'><italic>story</italic></font>: listen or join panels profiling careers: conventional and off the beaten path</li>
-                 <br>
-                 <li>brunch<font color='#808080'><italic>start</italic></font>: hear from successful entrepreneurs on how they got their businesses off the ground</li>
-                 <br>
-                 <li>brunch<font color='#808080'><italic>skill</italic></font>: work on your professional skills with the pros</li>
-                 <br>
-                 <li>brunch<font color='#808080'><italic>vest</italic></font>: where should you be investing? get expert advice</li>
-                 <br>
-                 <li>brunch<font color='#808080'><italic>life</italic></font>: tips & tricks that run the gamut: personal finance, art & wine</li>
-               </ul>
-             </h3>
-          </div>
-    </div>-->
-    
-		
 </div>
 
-<div class='home_slide' id='slide3' data-slide='3'>
+<div class='home_slide' id='slide3' >
   <div class="container">
     <div class="col-md-8 center transparency_slide3">
+			<h1> About Us</h1>
+			<h3>
+			<p>We are young, successful and hungry for the next opportunity. And so are you.</p>
 
-      <!--<h1> About Us</h1>
-         <h3>
-        <p>You will spend 90,000 hours at work in your lifetime. You shouldn't have to settle for a job you don't love. 
-          It should be easy to explore your options, and build skills and connections. As easy as going to brunch with friends.
-        <br>
-        <br>We are young, successful and hungry for the next opportunity. And so are you. Our community is calling your name.  
-        <br>
-        <br>Are you ready for brunch?
-        </p>
-      </h3> -->
-        <section class="flex-container">
-
-					  <h1>Notable Speakers</h1>
-						<div class="flexslider">
-							<ul class="slides" id="rotating_event">
-								<li>
-									<div class="flex-twitter-icon"></div>
-									<h2 class="twitter-post-username">
-									<a href="#">AOS New York @aod</a> <span>/ 35 min</span>
-									</h2>
-									<p class="twitter-post">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut tellus ac nulla semper rhoncus. Nullam a odio porttitor, dictum turpis vitae, pretium ante amet.</p>
-								</li>
-								<li>
-									<div class="flex-twitter-icon"></div>
-									<h2 class="twitter-post-username">
-									<a href="#">AOS New York @aod</a> <span>/ 35 min</span>
-									</h2>
-									<p class="twitter-post">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut tellus ac nulla semper rhoncus. </p>
-								</li>
-								<li>
-									<div class="flex-twitter-icon"></div>
-									<h2 class="twitter-post-username">
-									<a href="#">AOS New York @aod</a> <span>/ 35 min</span>
-									</h2>
-									<p class="twitter-post">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut tellus ac nulla semper rhoncus. Nullam a odio porttitor.</p>
-								</li>
-							</ul>
-
-			</div>
-		</section>
-
+<p>You shouldn't have to settle for a job you don't love. It should be easy to explore your options, and build skills and connections. As easy as going to brunch with friends. </p>
+<p>
+Are you ready?
+</p></h3>
+      
     </div>
   </div>
-  
-      
 </div>
 
 

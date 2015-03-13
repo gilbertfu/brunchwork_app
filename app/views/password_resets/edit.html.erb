@@ -1,0 +1,27 @@
+<% provide(:title, "Forgot Password") %>
+
+<div class='home_slide' id='slide1' data-stellar-background-ratio='0.5'>
+  <div class="container">
+    <div class="col-md-6 transparency center">
+        
+      <h2> 
+         Forgot Password
+      </h2>
+         <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
+          <%= render 'shared/error_messages_users' %>
+    
+          <%= hidden_field_tag :email, @user.email %>
+    
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
+    
+          <%= f.label :password_confirmation, "Confirmation" %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+    
+          <div class="center_text"><%= f.submit "Update Password", class: "btn btn-large btn-primary center" %></div>
+        <% end %>
+    
+   </div>
+  </div>
+  
+</div>

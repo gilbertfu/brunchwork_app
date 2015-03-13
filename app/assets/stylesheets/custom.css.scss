@@ -32,16 +32,7 @@ html {
   margin-right: 10px;
 }
 
-.event_box {
-  background-color:rgba(255,255,255,0.3);
-  margin: auto;
-  padding: 20px;
-  margin-top: 100px;
-  margin-bottom: 100px;
-  h1{
-    margin-bottom: 50px;
-  }
-}
+
 .transparency  {  
     background-color:rgba(255,255,255,0.7);
     h1, h2 {
@@ -52,7 +43,7 @@ html {
       letter-spacing: -2px;
       text-align: center;
     }
-    width: 600px;
+    width: 400px;
     margin: auto;
     padding-left: 20px;
     padding-right: 20px;
@@ -92,7 +83,7 @@ html {
 }
 
 .transparency_slide3  {  
-    //background-color:rgba(255,255,255,0.4);
+    background-color:rgba(255,255,255,0.4);
     h1, h2 {
       color: black;
     }
@@ -480,7 +471,7 @@ input {
 }
 
 .home_slide{
-  background-attachment: fixed;
+  //background-attachment: fixed;
   width: 100%;
   //min-width: 1700px;
   height: 100%;
@@ -707,7 +698,7 @@ input {
   }
 }
 
-a:link   { text-decoration:underline}
+//a:link   { text-decoration:underline}
 
 #page_enum ul
 {
@@ -737,7 +728,8 @@ list-style-type: none;
 	display: inline-block;
 	width: 100%;
 	color: rgb(255, 255, 255);
-	background-color: rgb(197, 44, 102);
+	//background-color: rgb(197, 44, 102);#ffffff
+	background-color: rgba(255, 165, 0, 0.7);
 	padding: 5px;
 	text-align: center;
 	text-transform: uppercase;
@@ -745,7 +737,8 @@ list-style-type: none;
 
 .event-list > li:nth-child(even) > time,
 .event-list > li:nth-child(even) > pasttime {
-	background-color: rgb(165, 82, 167);
+	//background-color: rgb(165, 82, 167);
+	background-color: rgba(255, 165, 0, 0.7);
 }
 .event-list > li > time > span,
 .event-list > li > pasttime > span {
@@ -937,7 +930,13 @@ list-style-type: none;
 	border-bottom: 1px solid #E9E9E9;
 }
 .wrapper_single{
-	width: 72.2%;
+	//width: 72.2%;
+	width: 85%;
+	float: left;
+}
+
+.wrapp_single_users{
+  width: 72.2%;
 	float: left;
 }
 .wrapper_top{
@@ -955,6 +954,7 @@ list-style-type: none;
 }
 .span_2_of_single {
 	width: 87.1%;
+	//width: 70%;
 	float: right;
 }
 .date {
@@ -1009,7 +1009,7 @@ h5.blog_title a:hover {
 }
 .span-1-of-2 p:nth-child(2)
 {
-	margin-top: 2.1em;
+	//margin-top: 2.1em;
 }
 .arrow_btn {
 	display: block;
@@ -1254,10 +1254,10 @@ li.twitter a span:hover {
 	opacity:0.8;
 	background-color: transparent
 }
-li.google a span {
-	background-position: -59px -54px;
+li.instagram a span {
+	background: url(instgrm_sml.png);
 }
-li.google a span:hover {
+li.instagram a span:hover {
 	opacity:0.8;
 }
 .button input[type="submit"],.send_button input[type="submit"] {
@@ -1645,13 +1645,13 @@ ul.sidebar_1 li {
 	margin: 0em 1em;
 	vertical-align: middle;
 }
-.sky_form  input[type="checkbox"]{
-	vertical-align: text-top;
-	border: 1px solid #fff;
-	width: 30px;
-	height: 30px;
-	vertical-align: middle;
-}
+//.sky_form  input[type="checkbox"]{
+//	vertical-align: text-top;
+//	border: 1px solid #fff;
+//	width: 30px;
+//	height: 30px;
+//	vertical-align: middle;
+//}
 
 #toTop {
 	display: none;
@@ -1845,7 +1845,7 @@ body {
 }
 
 .span1_of_4 a{
-  color: #a9a9a9;
+  //color: #a9a9a9;
 }
 
 .span1_of_4 blog_title{
@@ -2190,7 +2190,8 @@ span.tab-img{
 
 .listings ul.properties_list li img.property_img{
     width: 87.5%;
-    height: auto!important;
+    height: 250px;
+    //height: auto!important;
     vertical-align: top;
 }
 
@@ -2332,6 +2333,24 @@ span.tab-img{
   }
 }
 
+#education {
+  margin-top: 5px;
+  width: 100%;
+  border: 1px solid #a0a0a0;
+  border-right: none;
+	border-left:none;
+	border-top:none;
+}
+
+#employment {
+  margin-top: 5px;
+  width: 100%;
+  border: 1px solid #a0a0a0;
+  border-right: none;
+	border-left:none;
+	border-top:none;
+}
+
 .misc_info_box {
   width: 100%;
   padding-left: 20px;
@@ -2341,6 +2360,26 @@ span.tab-img{
 	border-left:none;
 	border-bottom:none;
   
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+.event_box {
+  background-color:rgba(255,255,255,0.3);
+  //margin: auto;
+  padding: 20px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  h1{
+    margin-bottom: 20px;
+  }
 }
 
 .flex-container { 

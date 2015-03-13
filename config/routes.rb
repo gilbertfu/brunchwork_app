@@ -1,13 +1,19 @@
 BrunchworkApp::Application.routes.draw do
+  get "password_resets/new"
+  get "password_resets/edit"
   resources :emails, only: [:create, :destroy, :show, :index, :send_email]
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :events, only: [:create, :destroy, :new, :index, :show]
+  resources :events, only: [:index]
   resources :blogposts#, only: [:create, :destroy, :new, :index, :show]
   resources :blogposts do
     resources :comments, only: [:create]
   end
   resources :comments, only: [:destroy]
+  resources :educations, only: [:create, :destroy]
+  resources :employments, only: [:create, :destroy]
+  resources :account_activations, only: [:edit]
+  resources :password_resets,     only: [:new, :create, :edit, :update]
   root "static_pages#home"
   #match 'help', to: "static_pages#help", via: 'get'
   #match 'about', to: "static_pages#about", via: 'get'
@@ -18,13 +24,21 @@ BrunchworkApp::Application.routes.draw do
   match 'emails/send_email/:email_content/:subject_line' => 'emails#send_email', via: 'post', :as => 'send_email'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+  match 'events/filter/:by_attribute/:value' => 'events#filter', via: 'get'
   resources :users do
     put :admin, :on => :member
     put :private_resume, :on => :member
-    #put :remove_resume, :on => :member
-    #put :remove_prof_pic, :on => :member
+    put :add_education, :on => :member
+    put :add_employment, :on => :member
+    put :edit_goals, :on => :member
+    put :submit_edit_goals, :on => :member
+    put :remove_prof_pic, :on => :member
+    put :remove_resume, :on => :member
   end
   mount Ckeditor::Engine => '/ckeditor'
+
+  
+  
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,16 +1,11 @@
 <% provide(:title, @user.name) %>
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 
 <!-- start slider -->
 <div class="slider_bg" >
 <div class="wrap">
-	<div class="slider">
-	</div>
+	<!--<div class="slider">
+	</div>-->
+	<br>
 </div>
 </div>
 <!-- start main -->
@@ -33,7 +28,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<p><%= @user.email %></p>
 							</div>
 							
-							<div class="misc_info_box">
+						<!--	<div class="misc_info_box">
 								<h4>Events Attended</h4>
 								<span>Fusce scelerisque massa vitae</span>
 								<p>25 april 2013</p>
@@ -41,7 +36,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<p>15 march 2013</p>
 								<span>Maecenas quis ipsum sed magna </span>
 								<p>25 april 2013</p>
-							</div>
+							</div>-->
 							
 							<div class="misc_info_box">
 							<h4>Latest Comments</h4>
@@ -65,27 +60,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<%= will_paginate @comments, :class => "f_nav1" %>
 							</div>
 						</div>
+					
 						<div class="span1_of_4_info">
-							<div class="info_box">
-									<span>Education</span>
-									<p><%= @user.school %></p>
+							<div class="info_box" id="member_educations">
+									<%= render 'educations/member_educations' %>
 							</div>
-							<div class="info_box">
-								<span>Employment</span>
-								<p>
-									<% if !@user.work_position.empty? %>
-									<%= @user.work_position %>,
-									<% end %> 
-									<%= @user.company %>
-								</p>
+							<div class="info_box" id="member_employments">
+								<%= render 'employments/member_employments' %>
 							</div>
-							<div class="info_box">
-								<span>Future Goals</span>
-								<p> <%= @user.goal %> </p>
-							<!--<p>I want to be the very best</p>
-							<p>		Like no one ever was</p>
-							<p>		To catch them is my real test</p>
-							<p>		To train them is my cause</p>-->
+							<div class="info_box" id="future_goals">
+								
+								<!--<p> <%= @user.goal %> </p>-->
+								<%= render 'future_goals' %>
+
 							</div>
 						</div>
 						<div class="span1_of_4">

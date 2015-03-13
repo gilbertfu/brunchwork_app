@@ -1,0 +1,12 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td align="center">
+            
+<h1>Welcome to <font color="#FFA500">brunch</font><font color="#808080">work</font>!</h1>
+
+<p> Please click link to activate your account: <%= link_to "Activate", edit_account_activation_url(@user.activation_token, email: @user.email) %> </p>
+<p>Thank you for joining <%= @user.name %>. See you at brunch!</p>
+
+        </td>
+    </tr>
+</table>

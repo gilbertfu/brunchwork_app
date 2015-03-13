@@ -1,0 +1,21 @@
+<% provide(:title, "Forgot Password") %>
+
+<div class='home_slide' id='slide1' data-stellar-background-ratio='0.5'>
+  <div class="container">
+    <div class="col-md-6 transparency center">
+        
+      <h2> 
+         Forgot Password
+      </h2>
+          <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email, :placeholder => "Reset link will be sent to this email" %>
+
+      <div class="center_text"><%= f.submit "Submit", class: "btn btn-large btn-primary center" %></div>
+    <% end %>
+    
+   </div>
+  </div>
+  
+</div>

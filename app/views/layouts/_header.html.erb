@@ -12,16 +12,18 @@
       </nav>
       <nav>
         <ul class="nav navbar-nav pull-right">
+          <li><%= link_to "Events", events_path %></li>
+          <li><%= link_to "Members", users_path %></li>
+          <li><%= link_to "Food for thought", blogposts_path %></li>
           <% if signed_in? %>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Profile", current_user %></li>
-                <li><%= link_to "Edit", edit_user_path(current_user) %></li>
+                <li><%= link_to "My Profile", current_user %></li>
+                <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
                 <% if current_user.admin? %>
-                <li><%= link_to "Create Event", new_event_path %></li>
                 <li><%= link_to "Create Blogpost", new_blogpost_path %></li>
                 <% end %>
                 <li class="divider"></li>
@@ -30,14 +32,13 @@
                 </li>
               </ul>
             </li>
-            <li><%= link_to "Members", users_path %></li>
           <% else %>
             <!--<li ><%= link_to "How It Works",  root_url + '#slide2' %></li>
             <li><%= link_to "About Us",   root_url + '#slide3' %></li>-->
             <li><%= link_to "Sign in", signin_path %></li>
           <% end %>
-          <li><%= link_to "Events", events_path %></li>
-          <li><%= link_to "Food for thought", blogposts_path %></li>
+          
+          
         </ul>
       </nav>
    </div> 

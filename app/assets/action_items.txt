@@ -27,14 +27,60 @@ week 1/26 - 1/31
 
 
 Gilbert
-week 1/26 - 1/31
-- add edit/delete blogpost
-- delete old profile pic/resume when a new one is uploaded
-- make blogpost content not viewable to non signed in users
-- carrier wave image uploader save only thumb
-- front end bs
 
-2/1-2/7
-- linked in api
+Next Phase
+- linkedin/facebook api
 - carousal for both events on home page and blog pictures
-- front end bs
+- analytics for the site
+- clean up front end bs
+- mobile
+
+
+
+#=============================
+#
+#   Secure Events Implementation Plan
+#
+#=============================
+
+- create Event model
+  - model should have:
+    -t.string   "title"
+    -t.string   "about"
+    -t.string   "event_type"
+    -t.string   "location"
+    -t.datetime "date_time"
+    -t.datetime "created_at"
+    -t.datetime "updated_at"
+    -t.string   "image"
+    -t.string   "status"
+    -t.integer  "attendees"
+    -t.integer  "max_attendees"
+    -t.string   "link"
+  - Event should have many users
+  - users should have many events
+  
+- write controller for Events (method for populating events model)
+  -use httparty gem to call EventBrite API
+  (http://www.rubydoc.info/gems/httparty/0.13.3)
+  - get JSON from EventBrite
+  - populate event model with JSON fields
+  - CHECK EVENTBRITE API FOR HOW TO ONLY GET UNSYNCED DATA
+  - METHODS:
+    - index: display events in descending
+      - //TODO: should we have separate page for past events? 
+      - //TODO: display by month? 
+    - edit: get which event u want to edit
+    - update: decide what to do upon successful edit
+    - create: check all params are there and create
+    - sync: THIS IS THE MAIN METHOD
+      - get json using httparty
+      - parse json
+        - if event is updated, edit it
+        - if new event is created, create it
+  
+- Write views for Events ( rails/AJAX to show events from OUR db)
+  - 
+
+
+

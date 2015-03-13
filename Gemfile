@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 #ruby-gemset=railstutorial_rails_4_0
 
+gem 'jquery-turbolinks'
 gem 'rails', '4.0.8'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'sprockets', '2.12.0'
@@ -13,6 +14,7 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'eventbrite-client'
+gem 'eventbrite'
 gem 'ckeditor'
 
 group :development, :test do

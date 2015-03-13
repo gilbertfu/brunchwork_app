@@ -1,20 +1,59 @@
-<% provide(:title, 'All users') %>
-<%= javascript_include_tag('eventbrite_user_owned_events_live.js') %>
-<div class="events">
+<% provide(:title, 'All Events') %>
+<!--<%= javascript_include_tag('eventbrite_user_owned_events_live.js') %>-->
+<div class="home_slide events">
   <div class="container" >
     <div class="event_box">
         
-      <div id="poop">
+      <div id="current_events">
+        <h1>All Events</h1>
+      <div class="row">
+      		<div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+      			<ul class="event-list">
+              <% @viewable_events.each do |event| %>
+                <li>
+                  <time datetime=<%= event.date_time.strftime("%Y-%m-%d") %>>
+       							<span class="day"><%= event.date_time.strftime("%d") %></span>
+      							<span class="month"><%= event.date_time.strftime("%b") %></span>
+      							<span class="year"><%= event.date_time.strftime("%Y") %></span>
+      							<span class="time"><%= event.date_time.strftime("%I:%M %p") %></span>               
+                  </time>
+                  <% if !event.image.nil? %>
+            				  <%= image_tag event.image, :size => "150x150"  %>
+            			<% end %>
+                  <div class="info">
+      							<h2 class="title"><%= link_to event.title, event.url, :target => '_blank'  %></h2>
+      							<ul>
+      							  <!--<li style="width:80%;"><span class="fa fa-globe"></span> <%= event.location %> </li>-->
+      							  <li style="width:70%;"><span class="fa fa-globe"></span>
+      							     <a href='http://maps.google.com/?q=<%= event.location %>'+ target="_blank">
+      							       <%= event.location.partition(',').first + event.location.partition(',').second + event.location.partition(',').third.partition(',').first %>
+      							     </a>
+      							 </li>
+      							  
+      							  <% if event.status == 'live' %>
+        							  <% if event.attendees < event.max_attendees %>
+                          <li style="width:30%;"> <a href=<%= event.url %> target="_blank">Buy tickets!</a> </li>
+                        <% elsif event.max_attendees - event.attendees <  6  && event.attendees < event.max_attendees %>
+                          <li style="width:30%;"><%= pluralize( event.max_attendees - event.attendees, 'tickets') %> left!</li>
+                        <% else %>
+                          <li style="width:30%;"> Sold out! </li>
+                        <% end %>
+                      <% else %>
+                        <li style="width:30%;"> Ended </li>
+                      <% end %>
+      							</ul>
+      						</div>
+                </li>
+             <% end %>
+            </ul>
+           <div id="page_enum" align="right">
+              <ul>
+                <%= will_paginate @viewable_events, inner_window: 1, outer_window: 0  %>
+              </ul>
+           </div>
+          </div>
       </div>
-      
-      <div id="crap">
-        <div class="center_text">
-          <button type="button" class="btn btn-lg btn-block">Older Events</button>
-        </div>
-      </div>
-      
     </div>
-    <br>
   </div>
 </div>
-
+</div>
