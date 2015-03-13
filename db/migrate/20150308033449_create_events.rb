@@ -11,7 +11,7 @@ class CreateEvents < ActiveRecord::Migration
       t.integer   :max_attendees
       t.datetime  :date_time
       t.string    :status
-      t.integer   :event_id
+      t.integer   :event_id, :limit => 8
       t.timestamps
     end
     add_index :events, [:date_time]

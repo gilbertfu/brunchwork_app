@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20150308033449) do
     t.integer  "max_attendees"
     t.datetime "date_time"
     t.string   "status"
-    t.integer  "event_id"
+    t.integer  "event_id",      limit: 8
     t.datetime "created_at"
     t.datetime "updated_at"
   end
