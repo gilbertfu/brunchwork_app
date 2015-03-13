@@ -80,4 +80,6 @@ BrunchworkApp::Application.configure do
   config.action_mailer.default_url_options = { host: 'www.brunchwork.com' }
   
   config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
+  
+  config.assets.compress = true
 end
