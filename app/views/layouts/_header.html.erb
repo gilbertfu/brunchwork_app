@@ -13,7 +13,7 @@
       <nav>
         <ul class="nav navbar-nav pull-right">
           <li><%= link_to "Events", events_path %></li>
-          <% if current_user.admin? %>
+          <% if signed_in? && current_user.admin? %>
             <li><%= link_to "Members", users_path %></li>
           <% end %>
           <li><%= link_to "Food for thought", blogposts_path %></li>
