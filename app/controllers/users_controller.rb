@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 before_action :signed_in_user, only: [:index, :show, :edit, :update, :destroy, :admin, :private_resume, :remove_resume, :remove_prof_pic, :submit_edit_goals]
 before_action :correct_user,   only: [:edit, :update, :private_resume, :remove_resume, :remove_prof_pic, :submit_edit_goals]
-before_action :admin_user,     only: [:destroy, :admin]
+before_action :admin_user,     only: [:destroy, :admin, :index]
 respond_to :html, :js
 
   def show
